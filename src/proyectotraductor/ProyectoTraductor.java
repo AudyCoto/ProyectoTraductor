@@ -5,6 +5,8 @@
  */
 package proyectotraductor;
 
+import Ventana.Principal;
+
 /**
  *
  * @author audyc
@@ -15,7 +17,7 @@ public class ProyectoTraductor {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.print("pollo");
+        new Principal().setVisible(true);
     }
     
 }
