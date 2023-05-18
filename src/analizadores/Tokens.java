@@ -43,8 +43,8 @@ public enum Tokens {
     duodcimo,       decimotercero,  decimocuarto,           decimoquinto,       decimosexto,
     decimosptimo,   decimoctavo,    decimonoveno,           vigsimo,            trigsimo,
     cuadragsimo,    quincuagsimo,   sexagsimo,              septuagsimo,        dieciocho,
-    nonagsimo,      ninetisegundo,  Noventaalaspajaros,     noventaycuatro,     unamilsima,
-    Onemillonsimo,  todos,          ninguna,                ambascosas,         cada,
+    nonagsimo,      cada,           noventaycuatro,         unamilsima,         nonagesimosegundo,
+    Onemillonsimo,  todos,          ninguna,                ambascosas,         nonagesimotercero,
     o,              suficiente,     pocos,                  menos,              pequeo,
     mucho,          ms,             muchos,                 otro,               otros,
     varios,         algunos,        tal,                    sexagesimo,         trigesimo,
@@ -65,6 +65,6 @@ public enum Tokens {
     maldito,        jerga,          brusco,                 diosmio,            guau,
     abucheo,        meh,            shh,                    hola,               ojala,
     ba,             elde,           hacia,                  unos,               Error,
-    eres,           es,             Linea,                  cielos
+    eres,           es,             Linea,                  cielos,             cualquiera
     
 }
