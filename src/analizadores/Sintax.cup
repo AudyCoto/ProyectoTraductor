@@ -1,5 +1,4 @@
-
-package traductor.lexer;
+package analizadores;
 import java_cup.runtime.Symbol;
 
 parser code
@@ -11,9 +10,8 @@ parser code
     }
     
     public Symbol getS(){
-        return this.S;
-    }
-}
+        return this.s;
+}  
 :};
 
 terminal yo,tu,el,ella,ello,eso,nosotros,ellos,soy,esta,estas,mi,su,nuestro,este,estos,ese,aquellas,amigable,sensitivo,generoso,
@@ -28,12 +26,15 @@ cincuenta,sesenta,setenta,ochenta,noventa,noventayuno,noventaydos,cien,dosciento
 sptimo,octavo,noveno,decimo,ndcimo,duodcimo,decimotercero,decimocuarto,decimoquinto,decimosexto,decimosptimo,decimoctavo,decimonoveno,vigsimo,
 trigsimo,cuadragsimo,quincuagsimo,sexagsimo,septuagsimo,dieciocho,nonagsimo,ninetisegundo,Noventaalaspajaros,noventaycuatro,unamilsima,Onemillonsimo,
 todos,ninguna,ambascosas,cada,o,suficiente,pocos,menos,pequeo,mucho,ms,muchos,otro,otros,varios,algunos,tal,sexagesimo,trigesimo,diecisiete,cuadragesimo,
-quincuagesimo,septimo,decimoseptimo,dieciseis,vigesimo,decimo,duodecimo,timido,nonagesimo,practico,septuagesimo,undecimo,unmillon,onemillonesimo,mas,
+quincuagesimo,septimo,decimoseptimo,dieciseis,vigesimo,duodecimo,timido,nonagesimo,practico,septuagesimo,undecimo,unmillon,onemillonesimo,mas,
 unamilesima,en,sobre,acercade,alrededor,durante,pasado,yaque,para,hasta,despues,entre,antesde,detras,abajo,alladode,ente,
 por,lejosde,desde,apagado,terminado,fuerade,y,pero,sinembargo,solamente,asique,entonces,sino,delocontrario,aun,aunque,como,si,tantos,nocomo,
 menosque,encaso,Hurra,yippee,rudon,bingo,mmm,beque,camiseta,puaj,oh,no,na,ejem,oye,argh,maldito,
-jerga,brusco,diosmio,guau,abucheo,meh,shh,hola,ojala,ba,elde,hacia,unos,Error,eres,es,Linea
+jerga,brusco,diosmio,guau,abucheo,meh,shh,hola,ojala,ba,elde,hacia,unos,Error,eres,es,Linea;
+
 non terminal INICIO;
 
 start with INICIO;
 
+INICIO ::= yo tu el
+;

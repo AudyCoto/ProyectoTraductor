@@ -5,7 +5,12 @@
  */
 package proyectotraductor;
 
+import Generadores.generador;
 import Ventana.Principal;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -17,7 +22,19 @@ public class ProyectoTraductor {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Principal().setVisible(true);
+        
+        try { 
+        generador generar = new generador();
+        
+        generar.gen();
+                  
+        } catch (Exception ex) {
+            Logger.getLogger(ProyectoTraductor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
+        //JFPrincipal.main(args);
+        //new Principal().setVisible(true);
     }
     
 }

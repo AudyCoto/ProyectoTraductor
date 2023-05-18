@@ -1,5 +1,5 @@
-package traductor.lexer;
-import static traductor.lexer.Tokens.*;
+package analizadores;
+import static analizadores.Tokens.*;
 
 %%
 %class Lexer
