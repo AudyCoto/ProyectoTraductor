@@ -65,6 +65,6 @@ public enum Tokens {
     maldito,        jerga,          brusco,                 diosmio,            guau,
     abucheo,        meh,            shh,                    hola,               ojala,
     ba,             elde,           hacia,                  unos,               Error,
-    eres,           es,             Linea
+    eres,           es,             Linea,                  cielos
     
 }
