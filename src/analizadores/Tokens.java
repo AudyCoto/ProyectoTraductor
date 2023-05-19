@@ -67,4 +67,7 @@ public enum Tokens {
     ba,             elde,           hacia,                  unos,               Error,
     eres,           es,             Linea,                  cielos,             cualquiera
     
+    
+    
+    
 }

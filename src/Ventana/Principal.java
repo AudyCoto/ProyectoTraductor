@@ -18,7 +18,9 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
+        this.setUndecorated(true);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -30,7 +32,6 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnTraducir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtTraducir = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -41,28 +42,24 @@ public class Principal extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        btnTraducir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(999, 740));
-        setPreferredSize(new java.awt.Dimension(999, 740));
-        setSize(new java.awt.Dimension(999, 740));
+        setMinimumSize(new java.awt.Dimension(1000, 740));
+        setPreferredSize(new java.awt.Dimension(1000, 740));
+        setSize(new java.awt.Dimension(1000, 740));
         getContentPane().setLayout(null);
-
-        btnTraducir.setText("jButton1");
-        btnTraducir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTraducirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnTraducir);
-        btnTraducir.setBounds(40, 20, 79, 25);
 
         txtTraducir.setColumns(20);
         txtTraducir.setRows(5);
         jScrollPane1.setViewportView(txtTraducir);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 90, 900, 150);
+        jScrollPane1.setBounds(40, 90, 900, 130);
 
         txtTraduccion.setEditable(false);
         txtTraduccion.setColumns(20);
@@ -77,21 +74,59 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3.setViewportView(txtError);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(40, 410, 240, 220);
+        jScrollPane3.setBounds(40, 420, 240, 260);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane4.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane4);
-        jScrollPane4.setBounds(370, 410, 240, 220);
+        jScrollPane4.setBounds(370, 420, 240, 260);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane5.setViewportView(jTextArea2);
 
         getContentPane().add(jScrollPane5);
-        jScrollPane5.setBounds(700, 410, 240, 220);
+        jScrollPane5.setBounds(700, 420, 240, 260);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("TRADUCTOR DE INGLES A ESPAÑOL");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(40, 30, 710, 40);
+
+        jButton1.setBackground(new java.awt.Color(102, 102, 0));
+        jButton1.setText("X");
+        jButton1.setMaximumSize(new java.awt.Dimension(30, 25));
+        jButton1.setMinimumSize(new java.awt.Dimension(30, 25));
+        jButton1.setPreferredSize(new java.awt.Dimension(30, 25));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(950, 0, 50, 40);
+
+        btnTraducir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnTraducir.setText("TRADUCIR");
+        btnTraducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTraducirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTraducir);
+        btnTraducir.setBounds(790, 30, 140, 50);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("TRADUCCION");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(400, 220, 180, 40);
+
+        jLabel2.setBackground(new java.awt.Color(204, 204, 0));
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1000, 740);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,6 +137,11 @@ public class Principal extends javax.swing.JFrame {
         txtError.setText(traduc.Error);
         txtError.setForeground(Color.red);
     }//GEN-LAST:event_btnTraducirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,6 +180,10 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTraducir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
