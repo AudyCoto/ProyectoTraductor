@@ -32,9 +32,13 @@ por,lejosde,desde,apagado,terminado,fuerade,y,pero,sinembargo,solamente,asique,e
 menosque,encaso,Hurra,yippee,rudon,bingo,mmm,beque,camiseta,puaj,oh,no,na,ejem,oye,argh,maldito, cualquiera,
 jerga,brusco,diosmio,guau,abucheo,meh,shh,hola,ojala,ba,elde,hacia,unos,Error,eres,es,Linea,cielos;
 
-non terminal INICIO;
+non terminal INICIO,AD_POSESIVOS;
 
-start with INICIO;
+start with INICIO ;
 
 INICIO ::= yo tu el
+;
+
+AD_POSESIVOS ::=
+    Hurra
 ;

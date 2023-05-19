@@ -33,8 +33,7 @@ public class ProyectoTraductor {
         }
         
 
-        //JFPrincipal.main(args);
-        //new Principal().setVisible(true);
+        new Principal().setVisible(true);
     }
     
 }

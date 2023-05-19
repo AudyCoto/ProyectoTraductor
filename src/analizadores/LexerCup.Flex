@@ -31,6 +31,11 @@ espacio=[ ,\t,\r,\n]+
 "Am" | "am" | "I'm" | "i'm" {return new Symbol(sym.soy, yychar, yyline, yytext());}
 "Are" | "are" | "ARE" {return new Symbol(sym.eres, yychar, yyline, yytext());}
 "Is" | "is" | "IS" {return new Symbol(sym.es, yychar, yyline, yytext());}
+
+//posesivos
+
+
+
 //adjetivos
 "practical"|"Practical"|"PRACTICAL" {return new Symbol(sym.practico, yychar, yyline, yytext());}
 "proud"|"Proud"|"PROUD" {return new Symbol(sym.orgulloso, yychar, yyline, yytext());}
@@ -63,7 +68,11 @@ espacio=[ ,\t,\r,\n]+
 "during"|"During"|"DURING" {return new Symbol(sym.durante, yychar, yyline, yytext());}	
 "past"|"Past"|"PAST" {return new Symbol(sym.pasado, yychar, yyline, yytext());}
 "since"|"Since"|"SINCE" {return new Symbol(sym.yaque, yychar, yyline, yytext());}
+
+//
 "to"|"To"|"TO" {return new Symbol(sym.para, yychar, yyline, yytext());}
+
+//
 "until"|"Until"|"UNTIL" {return new Symbol(sym.hasta, yychar, yyline, yytext());}
 "above"|"Above"|"ABOVE" {return new Symbol(sym.sobre, yychar, yyline, yytext());}
 "after"|"After"|"AFTER" {return new Symbol(sym.despues, yychar, yyline, yytext());}

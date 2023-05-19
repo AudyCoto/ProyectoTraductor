@@ -5,6 +5,9 @@
  */
 package Ventana;
 
+import analizadores.Traductor;
+import java.awt.Color;
+
 /**
  *
  * @author audyc
@@ -27,40 +30,78 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        name = new javax.swing.JButton();
+        btnTraducir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtTraducir = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtTraduccion = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtError = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(999, 740));
+        setPreferredSize(new java.awt.Dimension(999, 740));
+        setSize(new java.awt.Dimension(999, 740));
+        getContentPane().setLayout(null);
 
-        name.setText("jButton1");
-        name.addActionListener(new java.awt.event.ActionListener() {
+        btnTraducir.setText("jButton1");
+        btnTraducir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
+                btnTraducirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnTraducir);
+        btnTraducir.setBounds(40, 20, 79, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(231, Short.MAX_VALUE)
-                .addComponent(name)
-                .addGap(90, 90, 90))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(name)
-                .addContainerGap(230, Short.MAX_VALUE))
-        );
+        txtTraducir.setColumns(20);
+        txtTraducir.setRows(5);
+        jScrollPane1.setViewportView(txtTraducir);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(40, 90, 900, 150);
+
+        txtTraduccion.setEditable(false);
+        txtTraduccion.setColumns(20);
+        txtTraduccion.setRows(5);
+        jScrollPane2.setViewportView(txtTraduccion);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(40, 260, 900, 130);
+
+        txtError.setColumns(20);
+        txtError.setRows(5);
+        jScrollPane3.setViewportView(txtError);
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(40, 410, 240, 220);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane4.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(370, 410, 240, 220);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane5.setViewportView(jTextArea2);
+
+        getContentPane().add(jScrollPane5);
+        jScrollPane5.setBounds(700, 410, 240, 220);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-               // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
+    private void btnTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraducirActionPerformed
+        Traductor traduc = new Traductor();
+        txtTraduccion.setText(traduc.traducir(txtTraducir.getText()));
+        txtError.setText(traduc.Error);
+        txtError.setForeground(Color.red);
+    }//GEN-LAST:event_btnTraducirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,6 +139,16 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton name;
+    private javax.swing.JButton btnTraducir;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea txtError;
+    private javax.swing.JTextArea txtTraduccion;
+    private javax.swing.JTextArea txtTraducir;
     // End of variables declaration//GEN-END:variables
 }

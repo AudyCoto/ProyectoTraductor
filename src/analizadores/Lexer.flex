@@ -15,6 +15,7 @@ espacio=[ ,\t,\r]+
 
 %%
 "\n" {return Linea;}
+
 //PRONOMBRES
 "I" | "i" {lexeme=yytext(); return yo;}
 "You" | "you" {lexeme=yytext(); return tu;}
@@ -30,8 +31,13 @@ espacio=[ ,\t,\r]+
 
 
 
-//adjetivos
+//posesivos
 "practical"|"Practical"|"PRACTICAL" {lexeme=yytext(); return practico;}
+
+
+
+//adjetivos
+
 "proud"|"Proud"|"PROUD" {lexeme=yytext(); return orgulloso;}
 "adventurous"|"Adventurous"|"ADVENTUROUS" {lexeme=yytext(); return aventurero;}
 "absent"|"Absent"|"ABSENT" {lexeme=yytext(); return ausente;}
@@ -58,7 +64,7 @@ espacio=[ ,\t,\r]+
 "seventeen "|"Seventeen "|"SEVENTEEN " {lexeme=yytext(); return diecisiete;}
 "eighteen "|"Eighteen "|"EIGHTEEN " {lexeme=yytext(); return Dieciocho;}
 "nineteen "|"Nineteen "|"NINETEEN " {lexeme=yytext(); return diecinueve;}
-"thirty "|"Thirty "|"THIRTY " {lexeme=yytext(); return treinta;}
+1"thirty "|"Thirty "|"THIRTY " {lexeme=yytext(); return treinta;}
 "fourty "|"Fourty "|"FOURTY " {lexeme=yytext(); return Cuarenta;}
 "fifty "|"Fifty "|"FIFTY " {lexeme=yytext(); return cincuenta;}
 "sixty "|"Sixty "|"SIXTY " {lexeme=yytext(); return sesenta;}
