@@ -5,12 +5,14 @@
  */
 package analizadores;
 
-
+ 
+import analizadores.Tokens;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java_cup.runtime.Symbol;
 
 /**
  *
@@ -18,10 +20,15 @@ import java.io.Reader;
  */
 public class Traductor {
     
-    
+ 
     
     public String Error;
+    public String LisToken;
     public String traducir(String textingresado){
+        int tem=1;
+        LisToken= "LINEA 1 \n";
+        LisToken += LisToken+"Tipo \t\t Token"+ "\n";
+    
         Error= "";
         String resultado = "";
         //archivo que almacenara la entrada del texto
@@ -38,20 +45,36 @@ public class Traductor {
         try {
             Reader lectura = new BufferedReader(new FileReader(pathArchivo));
             Lexer lexer = new Lexer(lectura);
+            
+            //LexerCup cup = new LexerCup(lectura);
             //recorremos las lineas escritas en el text area de entrada
             while(true){
+                System.out.println(tem +" ");
                 Tokens tokens = lexer.yylex();
+               
                 if(tokens == null){
                    resultado += "";
                    System.out.println(resultado);
                    break;
                 }
                 if(tokens == tokens.Error){
-                    Error += lexer.lexeme + "-> Error lexico se desconoce la traducción de la palabra\n";
+                    LisToken += "NO DEFINIDO"+" \t\t "+lexer.yytext()+ "\n";
+                    
+                    //Error += lexer.lexeme + "-> Error lexico se desconoce la traducción de la palabra\n";
                     resultado += " --"+lexer.lexeme +"--  ";
-                }else{
-                    resultado += tokens.toString() + " ";
+                }else if(tokens == tokens.Linea){
+                        tem++;
+                        resultado += "\n";
+                        LisToken += "LINEA " + tem+ "\n";
+                        
+                }else {                    
+                    LisToken += lexer.tipo+" \t\t "+lexer.yytext()+ "\n";
+                    resultado += lexer.traduccion + " ";
+                    //cont++;    
+                //System.out.println("esto es un "+tokens);
+                    //LisToken += tokens2.toString() + cont + "\n";
                 }
+                
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -59,6 +82,8 @@ public class Traductor {
         
         return resultado;
     }
+    
+    
     
     
 }

@@ -19,6 +19,7 @@ public class generador {
     
     public static void gen() throws IOException, Exception{
         JFlex.Main.generate(new File("C:/Users/audyc/Documents/NetBeansProjects/ProyectoTraductor/src/analizadores/Lexer.flex"));
+        //JFlex.Main.generate(new File("C:/Users/audyc/Documents/NetBeansProjects/ProyectoTraductor/src/analizadores/LexerTranslate.flex"));
 
         JFlex.Main.generate(new File("C:/Users/audyc/Documents/NetBeansProjects/ProyectoTraductor/src/analizadores/LexerCup.flex"));
         

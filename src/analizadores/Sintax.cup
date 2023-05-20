@@ -14,7 +14,9 @@ parser code
 }  
 :};
 
-terminal yo,tu,el,ella,ello,eso,nosotros,ellos,soy,esta,estas,mi,su,nuestro,este,estos,ese,aquellas,amigable,sensitivo,generoso,
+terminal I, YOU, HE, SHE, IT, WE, THEY, AM, ARE, IS,
+
+yo,tu,el,ella,ello,eso,nosotros,ellos,soy,esta,estas,mi,su,nuestro,este,estos,ese,aquellas,amigable,sensitivo,generoso,
 grande,antiguo,hermoso,torpe,peludo,joven,rpido,bonito,loco,acogedor,maravilloso,esplndido,fantstico,increble,vistoso,ancestral,
 cmodo,doloroso,verde,amarillo,rojizo,comn,extrao,enrgico,resbaladizo,profundo,
 enorme,roto,afilado,triangular,endeble,baboso,aceitoso,insignificante,cursi,brillante,puro,ondulado,
@@ -30,7 +32,10 @@ quincuagesimo,septimo,decimoseptimo,dieciseis,vigesimo,duodecimo,timido,nonagesi
 unamilesima,en,sobre,acercade,alrededor,durante,pasado,yaque,para,hasta,despues,entre,antesde,detras,abajo,alladode,ente,
 por,lejosde,desde,apagado,terminado,fuerade,y,pero,sinembargo,solamente,asique,entonces,sino,delocontrario,aun,aunque,como,si,tantos,nocomo,
 menosque,encaso,Hurra,yippee,rudon,bingo,mmm,beque,camiseta,puaj,oh,no,na,ejem,oye,argh,maldito, cualquiera,
-jerga,brusco,diosmio,guau,abucheo,meh,shh,hola,ojala,ba,elde,hacia,unos,Error,eres,es,Linea,cielos;
+jerga,brusco,diosmio,guau,abucheo,meh,shh,hola,ojala,ba,elde,hacia,unos,eres,es,Linea,cielos,
+Error,
+perro, carro, libro, casa, gato, silla, árbol, flor, mesa, bolígrafo, computadora, teléfono, sol, estantería,
+Sustantivo;
 
 non terminal INICIO,AD_POSESIVOS;
 

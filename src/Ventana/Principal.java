@@ -39,13 +39,18 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtError = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtLexico = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtSemantico = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnTraducir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        LIMPIAR = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,26 +79,30 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3.setViewportView(txtError);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(40, 420, 240, 260);
+        jScrollPane3.setBounds(40, 420, 300, 280);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
+        txtLexico.setColumns(20);
+        txtLexico.setRows(5);
+        jScrollPane4.setViewportView(txtLexico);
 
         getContentPane().add(jScrollPane4);
-        jScrollPane4.setBounds(370, 420, 240, 260);
+        jScrollPane4.setBounds(370, 420, 260, 280);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane5.setViewportView(jTextArea2);
+        txtSemantico.setColumns(20);
+        txtSemantico.setRows(5);
+        jScrollPane5.setViewportView(txtSemantico);
 
         getContentPane().add(jScrollPane5);
-        jScrollPane5.setBounds(700, 420, 240, 260);
+        jScrollPane5.setBounds(650, 420, 290, 280);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoumg.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(40, 10, 130, 100);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("TRADUCTOR DE INGLES A ESPAÑOL");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(40, 30, 710, 40);
+        jLabel1.setBounds(130, 30, 470, 40);
 
         jButton1.setBackground(new java.awt.Color(102, 102, 0));
         jButton1.setText("X");
@@ -123,6 +132,31 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(400, 220, 180, 40);
 
+        LIMPIAR.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        LIMPIAR.setText("LIMPIAR");
+        LIMPIAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LIMPIARActionPerformed(evt);
+            }
+        });
+        getContentPane().add(LIMPIAR);
+        LIMPIAR.setBounds(660, 30, 120, 50);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("-- LEXICO --");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(460, 400, 90, 17);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("-- SEMANTICO --");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(740, 400, 130, 17);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("-- SINTACTICO --");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(130, 400, 140, 17);
+
         jLabel2.setBackground(new java.awt.Color(204, 204, 0));
         jLabel2.setOpaque(true);
         getContentPane().add(jLabel2);
@@ -135,6 +169,7 @@ public class Principal extends javax.swing.JFrame {
         Traductor traduc = new Traductor();
         txtTraduccion.setText(traduc.traducir(txtTraducir.getText()));
         txtError.setText(traduc.Error);
+        txtLexico.setText(traduc.LisToken);
         txtError.setForeground(Color.red);
     }//GEN-LAST:event_btnTraducirActionPerformed
 
@@ -142,6 +177,14 @@ public class Principal extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void LIMPIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LIMPIARActionPerformed
+        txtError.setText("");
+        txtLexico.setText("");
+        txtTraduccion.setText("");
+        txtTraducir.setText("");
+        txtSemantico.setText("");
+    }//GEN-LAST:event_LIMPIARActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,19 +222,24 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LIMPIAR;
     private javax.swing.JButton btnTraducir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea txtError;
+    private javax.swing.JTextArea txtLexico;
+    private javax.swing.JTextArea txtSemantico;
     private javax.swing.JTextArea txtTraduccion;
     private javax.swing.JTextArea txtTraducir;
     // End of variables declaration//GEN-END:variables

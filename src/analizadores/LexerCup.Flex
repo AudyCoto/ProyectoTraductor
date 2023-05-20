@@ -20,23 +20,28 @@ espacio=[ ,\t,\r,\n]+
 %}
 %%
 
-//PRONOMBRES
-"I" | "i" {return new Symbol(sym.yo, yychar, yyline, yytext());}
-"You" | "you" {return new Symbol(sym.tu, yychar, yyline, yytext());}
-"He" | "he" {return new Symbol(sym.el, yychar, yyline, yytext());}
-"She" | "she" {return new Symbol(sym.ella, yychar, yyline, yytext());}
-"It" | "it" {return new Symbol(sym.ello, yychar, yyline, yytext());}
-"We" | "we" {return new Symbol(sym.nosotros, yychar, yyline, yytext());}
-"They" | "they" {return new Symbol(sym.ellos, yychar, yyline, yytext());}
-"Am" | "am" | "I'm" | "i'm" {return new Symbol(sym.soy, yychar, yyline, yytext());}
-"Are" | "are" | "ARE" {return new Symbol(sym.eres, yychar, yyline, yytext());}
-"Is" | "is" | "IS" {return new Symbol(sym.es, yychar, yyline, yytext());}
+{espacio} {/*Ignore*/}
 
-//posesivos
+//PRONOMBRES
+"I" | "i" {return new Symbol(sym.I, yychar, yyline, yytext());}
+"You" | "you" {return new Symbol(sym.YOU, yychar, yyline, yytext());}
+"He" | "he" {return new Symbol(sym.HE, yychar, yyline, yytext());}
+"She" | "she" {return new Symbol(sym.SHE, yychar, yyline, yytext());}
+"It" | "it" {return new Symbol(sym.IT, yychar, yyline, yytext());}
+"We" | "we" {return new Symbol(sym.WE, yychar, yyline, yytext());}
+"They" | "they" {return new Symbol(sym.THEY, yychar, yyline, yytext());}
+"Am" | "am" | "I'm" | "i'm" {return new Symbol(sym.AM, yychar, yyline, yytext());}
+"Are" | "are" | "ARE" {return new Symbol(sym.ARE, yychar, yyline, yytext());}
+"Is" | "is" | "IS" {return new Symbol(sym.IS, yychar, yyline, yytext());}
+
+//SUSTANTIVOS
 
 
 
 //adjetivos
+
+
+
 "practical"|"Practical"|"PRACTICAL" {return new Symbol(sym.practico, yychar, yyline, yytext());}
 "proud"|"Proud"|"PROUD" {return new Symbol(sym.orgulloso, yychar, yyline, yytext());}
 "adventurous"|"Adventurous"|"ADVENTUROUS" {return new Symbol(sym.aventurero, yychar, yyline, yytext());}
@@ -212,7 +217,7 @@ espacio=[ ,\t,\r,\n]+
  
 
 
-{espacio} {/*Ignore*/}
+
 
 "on"|"On"|"ON" {return new Symbol(sym.sobre, yychar, yyline, yytext());}
 "about"|"About"|"ABOUT" {return new Symbol(sym.acercade, yychar, yyline, yytext());}
