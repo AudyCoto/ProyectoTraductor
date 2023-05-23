@@ -7,6 +7,9 @@ package Ventana;
 
 import analizadores.Traductor;
 import java.awt.Color;
+import java_cup.Lexer;
+import java_cup.parser;
+import analizadores.analizador;
 
 /**
  *
@@ -17,6 +20,10 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    public Lexer lexer;
+    public parser parser;
+    
+    
     public Principal() {
         this.setUndecorated(true);
         initComponents();
@@ -166,10 +173,19 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraducirActionPerformed
+        
+        String Parrafo = remplac(txtTraducir.getText());
+        //System.out.println("|||||"+Parrafo);
         Traductor traduc = new Traductor();
-        txtTraduccion.setText(traduc.traducir(txtTraducir.getText()));
+        String temporal=remplac2(traduc.traducir(Parrafo) );
+        //System.out.println("|||||"+temporal);
+        txtTraduccion.setText(temporal);
+        analizador sin = new analizador();
+        sin.sintactico();
         txtError.setText(traduc.Error);
+        
         txtLexico.setText(traduc.LisToken);
+        
         txtError.setForeground(Color.red);
     }//GEN-LAST:event_btnTraducirActionPerformed
 
@@ -184,11 +200,58 @@ public class Principal extends javax.swing.JFrame {
         txtTraduccion.setText("");
         txtTraducir.setText("");
         txtSemantico.setText("");
+         //String texto = "\033[31m Texto en rojo \u001B[0m Texto negro";
+         txtSemantico.setText("");
     }//GEN-LAST:event_LIMPIARActionPerformed
 
+    
+    
+
+    
+    
+    
+    public String remplac2(String cadena){
+        
+        
+        //System.out.print("-- --"+cadena+"|| ");
+        String cadena_nueva="";
+        cadena_nueva=cadena.replaceAll("como son tu", "como estas");
+        cadena_nueva=cadena_nueva.replaceAll("mio nombre", "mi nombre");
+        cadena_nueva=cadena_nueva.replaceAll(" punn","\\. " );
+        cadena_nueva=cadena_nueva.replaceAll(" comm","\\, " );
+        cadena_nueva=cadena_nueva.replaceAll(" puncom","\\; " );
+        cadena_nueva=cadena_nueva.replaceAll(" dospum","\\: " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrad","\\! " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrin","\\? " );
+        cadena_nueva=cadena_nueva.replaceAll(" abrpar","\\( " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrpar","\\) " );
+        cadena_nueva=cadena_nueva.replaceAll(" abrllac","\\[ " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrlac","\\] " );
+
+        
+        //System.out.print("-- --"+cadena_nueva+"|| ");
+        return cadena_nueva;
+    }
+        
+    
+    public String remplac(String cadena){
+        String cadena_nueva="";
+        cadena_nueva=cadena.replaceAll("\\."," \\. " );
+        cadena_nueva=cadena_nueva.replaceAll("\\,"," comii " );
+        cadena_nueva=cadena_nueva.replaceAll("\\;"," comipun " );
+        cadena_nueva=cadena_nueva.replaceAll("\\:"," dosssp " );
+        cadena_nueva=cadena_nueva.replaceAll("\\!"," \\! " );
+        cadena_nueva=cadena_nueva.replaceAll("\\?"," \\? " );
+        cadena_nueva=cadena_nueva.replaceAll("\\("," \\( " );
+        cadena_nueva=cadena_nueva.replaceAll("\\)"," \\) " );
+        cadena_nueva=cadena_nueva.replaceAll("\\["," \\[ " );
+        cadena_nueva=cadena_nueva.replaceAll("\\]"," \\] " );     
+        return cadena_nueva;
+    }
     /**
      * @param args the command line arguments
      */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

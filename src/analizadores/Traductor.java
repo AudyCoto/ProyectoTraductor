@@ -25,6 +25,10 @@ public class Traductor {
     public String Error;
     public String LisToken;
     public String traducir(String textingresado){
+        
+        System.out.print("\n +++"+textingresado+"+++\n");
+        
+        //System.out.println("------------"+ textingresado + "-----------");
         int tem=1;
         LisToken= "LINEA 1 \n";
         LisToken += LisToken+"Tipo \t\t Token"+ "\n";
@@ -48,13 +52,14 @@ public class Traductor {
             
             //LexerCup cup = new LexerCup(lectura);
             //recorremos las lineas escritas en el text area de entrada
+            System.out.println();
             while(true){
-                System.out.println(tem +" ");
+                //System.out.println(tem +" ");
                 Tokens tokens = lexer.yylex();
-               
+                
                 if(tokens == null){
+                    
                    resultado += "";
-                   System.out.println(resultado);
                    break;
                 }
                 if(tokens == tokens.Error){
@@ -67,7 +72,8 @@ public class Traductor {
                         resultado += "\n";
                         LisToken += "LINEA " + tem+ "\n";
                         
-                }else {                    
+                }else {
+                    System.out.println(lexer.traduccion);
                     LisToken += lexer.tipo+" \t\t "+lexer.yytext()+ "\n";
                     resultado += lexer.traduccion + " ";
                     //cont++;    
@@ -76,6 +82,8 @@ public class Traductor {
                 }
                 
             }
+        
+        System.out.print("\n"+resultado+"\n");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -83,7 +91,24 @@ public class Traductor {
         return resultado;
     }
     
-    
+        public String remplac2(String cadena){
+        String cadena_nueva="";
+        cadena_nueva=cadena.replaceAll("como son tu", "como estas");
+        cadena_nueva=cadena.replaceAll("mio nombre", "mi nombre");
+        cadena_nueva=cadena.replaceAll(" punn","\\. " );
+        cadena_nueva=cadena.replaceAll(" comm","\\, " );
+        cadena_nueva=cadena.replaceAll(" puncom","\\; " );
+        cadena_nueva=cadena.replaceAll(" dospum","\\: " );
+        cadena_nueva=cadena.replaceAll(" cerrad","\\! " );
+        cadena_nueva=cadena.replaceAll(" cerrin","\\? " );
+        cadena_nueva=cadena.replaceAll(" abrpar","\\( " );
+        cadena_nueva=cadena.replaceAll(" cerrpar","\\) " );
+        cadena_nueva=cadena.replaceAll(" abrllac","\\[ " );
+        cadena_nueva=cadena.replaceAll(" cerrlac","\\] " );
+        
+        System.out.print(cadena_nueva);
+        return cadena_nueva;
+    }
     
     
 }

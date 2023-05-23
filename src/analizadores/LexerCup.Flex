@@ -2,9 +2,11 @@ package analizadores;
 import java_cup.runtime.Symbol;
 
 %%
-%class LexerCup
-%type java_cup.runtime.Symbol
+%class LexerCup%type java_cup.runtime.Symbol
+%cup
+%full
 %line
+%char
 L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ ,\t,\r,\n]+
@@ -21,8 +23,13 @@ espacio=[ ,\t,\r,\n]+
 %%
 
 {espacio} {/*Ignore*/}
+/* Error de analisis */
+ //. {return new Symbol(sym.ERROR, yychar, yyline, yytext());}
 
-//PRONOMBRES
+//-------------------------------------------------------
+
+//----PRONOMBRES----
+
 "I" | "i" {return new Symbol(sym.I, yychar, yyline, yytext());}
 "You" | "you" {return new Symbol(sym.YOU, yychar, yyline, yytext());}
 "He" | "he" {return new Symbol(sym.HE, yychar, yyline, yytext());}
@@ -32,193 +39,199 @@ espacio=[ ,\t,\r,\n]+
 "They" | "they" {return new Symbol(sym.THEY, yychar, yyline, yytext());}
 "Am" | "am" | "I'm" | "i'm" {return new Symbol(sym.AM, yychar, yyline, yytext());}
 "Are" | "are" | "ARE" {return new Symbol(sym.ARE, yychar, yyline, yytext());}
-"Is" | "is" | "IS" {return new Symbol(sym.IS, yychar, yyline, yytext());}
-
-//SUSTANTIVOS
 
 
+                                //SUSTANTIVOS
 
-//adjetivos
-
-
-
-"practical"|"Practical"|"PRACTICAL" {return new Symbol(sym.practico, yychar, yyline, yytext());}
-"proud"|"Proud"|"PROUD" {return new Symbol(sym.orgulloso, yychar, yyline, yytext());}
-"adventurous"|"Adventurous"|"ADVENTUROUS" {return new Symbol(sym.aventurero, yychar, yyline, yytext());}
-"absent"|"Absent"|"ABSENT" {return new Symbol(sym.ausente, yychar, yyline, yytext());}
-"impatient"|"Impatient"|"IMPATIENT" {return new Symbol(sym.impaciente, yychar, yyline, yytext());}
-"generous"|"Generous"|"GENEROUS" {return new Symbol(sym.generoso, yychar, yyline, yytext());}
-"shy"|"Shy"|"SHY" {return new Symbol(sym.timido, yychar, yyline, yytext());}
-"zero"|"Zero"|"ZERO" {return new Symbol(sym.cero, yychar, yyline, yytext());}
-"one"|"One"|"ONE" {return new Symbol(sym.uno, yychar, yyline, yytext());}
-"two"|"Two"|"TWO" {return new Symbol(sym.dos, yychar, yyline, yytext());}
-"three"|"Three"|"THREE" {return new Symbol(sym.Tres, yychar, yyline, yytext());}
-"four"|"Four"|"FOUR" {return new Symbol(sym.cuatro, yychar, yyline, yytext());}
-"five"|"Five"|"FIVE" {return new Symbol(sym.cinco, yychar, yyline, yytext());}
-"six"|"Six"|"SIX" {return new Symbol(sym.seis, yychar, yyline, yytext());}
-"seven"|"Seven"|"SEVEN" {return new Symbol(sym.Siete, yychar, yyline, yytext());}
-"eight"|"Eight"|"EIGHT" {return new Symbol(sym.ocho, yychar, yyline, yytext());}
-"nine"|"Nine"|"NINE" {return new Symbol(sym.nueve, yychar, yyline, yytext());}
-"ten"|"Ten"|"TEN" {return new Symbol(sym.diez, yychar, yyline, yytext());}
-"eleven"|"Eleven"|"ELEVEN" {return new Symbol(sym.once, yychar, yyline, yytext());}
-"twelve"|"Twelve"|"TWELVE" {return new Symbol(sym.doce, yychar, yyline, yytext());}
-"thirteen"|"Thirteen"|"THIRTEEN" {return new Symbol(sym.trece, yychar, yyline, yytext());}
-"fourteen"|"Fourteen"|"FOURTEEN" {return new Symbol(sym.catorce, yychar, yyline, yytext());}
-"fifteen"|"Fifteen"|"FIFTEEN" {return new Symbol(sym.quince, yychar, yyline, yytext());}
-"sixteen"|"Sixteen"|"SIXTEEN" {return new Symbol(sym.dieciseis, yychar, yyline, yytext());}
-"seventeen"|"Seventeen"|"SEVENTEEN" {return new Symbol(sym.diecisiete, yychar, yyline, yytext());}
-"eighteen"|"Eighteen"|"EIGHTEEN" {return new Symbol(sym.Dieciocho, yychar, yyline, yytext());}
-"nineteen"|"Nineteen"|"NINETEEN" {return new Symbol(sym.diecinueve, yychar, yyline, yytext());}
-"among"|"Among"|"AMONG" {return new Symbol(sym.entre, yychar, yyline, yytext());}
-"during"|"During"|"DURING" {return new Symbol(sym.durante, yychar, yyline, yytext());}	
-"past"|"Past"|"PAST" {return new Symbol(sym.pasado, yychar, yyline, yytext());}
-"since"|"Since"|"SINCE" {return new Symbol(sym.yaque, yychar, yyline, yytext());}
-
-//
-"to"|"To"|"TO" {return new Symbol(sym.para, yychar, yyline, yytext());}
-
-//
-"until"|"Until"|"UNTIL" {return new Symbol(sym.hasta, yychar, yyline, yytext());}
-"above"|"Above"|"ABOVE" {return new Symbol(sym.sobre, yychar, yyline, yytext());}
-"after"|"After"|"AFTER" {return new Symbol(sym.despues, yychar, yyline, yytext());}
-"before"|"Before"|"BEFORE" {return new Symbol(sym.antesde, yychar, yyline, yytext());}
-"behind"|"Behind"|"BEHIND" {return new Symbol(sym.detras, yychar, yyline, yytext());}
-"below"|"Below"|"BELOW" {return new Symbol(sym.abajo, yychar, yyline, yytext());}
-"beside"|"Beside"|"BESIDE" {return new Symbol(sym.alladode, yychar, yyline, yytext());}
-"between"|"Between"|"BETWEEN" {return new Symbol(sym.ente, yychar, yyline, yytext());}
-"around"|"Around"|"AROUND" {return new Symbol(sym.alrededor, yychar, yyline, yytext());}
-"by"|"By"|"BY" {return new Symbol(sym.por, yychar, yyline, yytext());}
-
-"away from"|"Away from"|"AWAY FROM" {return new Symbol(sym.lejosde, yychar, yyline, yytext());}
-"down"|"Down"|"DOWN" {return new Symbol(sym.abajo, yychar, yyline, yytext());}
-"from"|"From"|"FROM" {return new Symbol(sym.desde, yychar, yyline, yytext());}
-"off"|"Off"|"OFF" {return new Symbol(sym.apagado, yychar, yyline, yytext());}
-"over"|"Over"|"OVER" {return new Symbol(sym.terminado, yychar, yyline, yytext());}
-"out of"|"Out Of"|"OUT OF" {return new Symbol(sym.fuerade, yychar, yyline, yytext());}
-"onto"|"Onto"|"ONTO" {return new Symbol(sym.sobre, yychar, yyline, yytext());}
-"and"|"And"|"AND" {return new Symbol(sym.y, yychar, yyline, yytext());}
-"but"|"But"|"BUT" {return new Symbol(sym.pero, yychar, yyline, yytext());}
-"however"|"However"|"HOWEVER" {return new Symbol(sym.sinembargo, yychar, yyline, yytext());}
-"only"|"Only"|"ONLY" {return new Symbol(sym.solamente, yychar, yyline, yytext());}
-"or"|"Or"|"OR" {return new Symbol(sym.o, yychar, yyline, yytext());}
-"so"|"So"|"SO" {return new Symbol(sym.asique, yychar, yyline, yytext());}
-"then"|"Then"|"THEN" {return new Symbol(sym.entonces, yychar, yyline, yytext());}
-"or else"|"Or else"|"OR ELSE" {return new Symbol(sym.sino, yychar, yyline, yytext());}
-"otherwise"|"Otherwise"|"OTHERWISE" {return new Symbol(sym.delocontrario, yychar, yyline, yytext());}
-"yet"|"Yet"|"YET" {return new Symbol(sym.aun, yychar, yyline, yytext());}
-"althought"|"Althought"|"ALTHOUGHT" {return new Symbol(sym.aunque, yychar, yyline, yytext());}
-"as"|"As"|"AS" {return new Symbol(sym.como, yychar, yyline, yytext());}
-"if"|"If"|"IF" {return new Symbol(sym.si, yychar, yyline, yytext());}
-"so many"|"So Many"|"SO MANY" {return new Symbol(sym.tantos, yychar, yyline, yytext());}
-"such"|"Such"|"SUCH" {return new Symbol(sym.tal, yychar, yyline, yytext());}
-"not as"|"Not As"|"NOT AS" {return new Symbol(sym.nocomo, yychar, yyline, yytext());}
-"less than"|"Less than"|"LESS THAN" {return new Symbol(sym.menosque, yychar, yyline, yytext());}
-"so as to"|"So as to"|"SO AS TO" {return new Symbol(sym.para, yychar, yyline, yytext());}
-"in case"|"In case"|"IN CASE" {return new Symbol(sym.encaso, yychar, yyline, yytext());} 
-"yay"|"Yay!"|"YAY" {return new Symbol(sym.Hurra, yychar, yyline, yytext());}
-"yippee"|"Yippee! "|"YIPPEE" {return new Symbol(sym.yippee, yychar, yyline, yytext());}
-"hooray"|"Hooray! "|"HOORAY" {return new Symbol(sym.rudon, yychar, yyline, yytext());}
-"bingo"|"Bingo!"|"BINGO" {return new Symbol(sym.bingo, yychar, yyline, yytext());}
-"mmm"|"Mmm"|"MMM" {return new Symbol(sym.mmm, yychar, yyline, yytext());}
-"yum"|"Yum"|"YUM" {return new Symbol(sym.beque, yychar, yyline, yytext());}
-"t-shirt"|"T-shirt"|"T-SHIRT" {return new Symbol(sym.camiseta, yychar, yyline, yytext());}
-"ugh"|"Ugh"|"UGH" {return new Symbol(sym.puaj, yychar, yyline, yytext());}
-"uh"|"Uh"|"UH" {return new Symbol(sym.oh, yychar, yyline, yytext());}
-"yep"|"Yep"|"YEP" {return new Symbol(sym.si, yychar, yyline, yytext());}
-"nope"|"Nope"|"NOPE" {return new Symbol(sym.no, yychar, yyline, yytext());}
-"nah"|"Nah"|"NAH" {return new Symbol(sym.na, yychar, yyline, yytext());}
-"ahem"|"Ahem"|"AHEM" {return new Symbol(sym.ejem, yychar, yyline, yytext());}
-"hey"|"Hey"|"HEY" {return new Symbol(sym.oye, yychar, yyline, yytext());}
-"argh"|"Argh! "|"ARGH" {return new Symbol(sym.argh, yychar, yyline, yytext());}
-"darn"|"Darn"|"DARN" {return new Symbol(sym.maldito, yychar, yyline, yytext());}
-"er"|"Er"|"ER" {return new Symbol(sym.jerga, yychar, yyline, yytext());}
-"jeez"|"Jeez"|"JEEZ" {return new Symbol(sym.cielos, yychar, yyline, yytext());}
-"gosh"|"Gosh"|"GOSH" {return new Symbol(sym.diosmio, yychar, yyline, yytext());}
-"wow"|"Wow"|"WOW" {return new Symbol(sym.guau, yychar, yyline, yytext());}
-"boo"|"Boo"|"BOO" {return new Symbol(sym.abucheo, yychar, yyline, yytext());}
-"meh"|"Meh"|"MEH" {return new Symbol(sym.meh, yychar, yyline, yytext());}
-"shh"|"Shh"|"SHH" {return new Symbol(sym.shh, yychar, yyline, yytext());}
-"hi"|"¡hi!"|"HI" {return new Symbol(sym.hola, yychar, yyline, yytext());}
-"hopefully"|"¡hopefully!"|"HOPEFULLY" {return new Symbol(sym.ojala, yychar, yyline, yytext());}
-"bah"|"¡bah!"|"BAH" {return new Symbol(sym.ba, yychar, yyline, yytext());}
-"of the"|"Of the"|"OF THE" {return new Symbol(sym.elde, yychar, yyline, yytext());}
-"to the"|"To the"|"TO THE" {return new Symbol(sym.hacia, yychar, yyline, yytext());}
-"hmm"|"Hmm"|"HMM" {return new Symbol(sym.mmm, yychar, yyline, yytext());}
+"Hi" | "hi" | "HI" {return new Symbol(sym.HI, yychar, yyline, yytext());}
+"Hello" | "hello" | "HELLO" {return new Symbol(sym.HELLO, yychar, yyline, yytext());}
+"Dog" | "dog" | "DOG" {return new Symbol(sym.DOG, yychar, yyline, yytext());}
+"Car" | "car" | "CAR" {return new Symbol(sym.CAR, yychar, yyline, yytext());}
+"Book" | "book" | "BOOK" {return new Symbol(sym.BOOK, yychar, yyline, yytext());}
+"House" | "house" | "HOUSE" {return new Symbol(sym.HOUSE, yychar, yyline, yytext());}
+"Cat" | "cat" | "CAT" {return new Symbol(sym.CAT, yychar, yyline, yytext());}
+"Chair" | "chair" | "CHAIR" {return new Symbol(sym.CHAIR, yychar, yyline, yytext());}
+"Tree" | "tree" | "TREE" {return new Symbol(sym.TREE, yychar, yyline, yytext());}
+"Flower" | "flower" | "FLOWER" {return new Symbol(sym.FLOWER, yychar, yyline, yytext());}
+"Table" | "table" | "TABLE"  {return new Symbol(sym.TABLE, yychar, yyline, yytext());}
+"Pen" | "pen" | "PEN" {return new Symbol(sym.PEN, yychar, yyline, yytext());}
+"Computer" | "computer" | "COMPUTER" {return new Symbol(sym.COMPUTER, yychar, yyline, yytext());}
+"Phone" | "phone"| "PHONE" {return new Symbol(sym.PHONE, yychar, yyline, yytext());}
+"Sun" | "sun"| "SUN" {return new Symbol(sym.SUN, yychar, yyline, yytext());}
+"Bookshelf" | "bookshelf" | "BOOKSHELF" {return new Symbol(sym.BOOKSHELF, yychar, yyline, yytext());}
 
 
 
+                                //Adjetivo
 
-"thirty"|"Thirty"|"THIRTY" {return new Symbol(sym.treinta, yychar, yyline, yytext());}
-"fourty"|"Fourty"|"FOURTY" {return new Symbol(sym.Cuarenta, yychar, yyline, yytext());}
-"fifty"|"Fifty"|"FIFTY" {return new Symbol(sym.cincuenta, yychar, yyline, yytext());}
-"sixty"|"Sixty"|"SIXTY" {return new Symbol(sym.sesenta, yychar, yyline, yytext());}
-"seventy"|"Seventy"|"SEVENTY" {return new Symbol(sym.setenta, yychar, yyline, yytext());}
-"eighty"|"Eighty"|"EIGHTY" {return new Symbol(sym.ochenta, yychar, yyline, yytext());}
-"ninety"|"Ninety"|"NINETY" {return new Symbol(sym.noventa, yychar, yyline, yytext());}
-"ninetyone"|"Ninetyone"|"NINETYONE" {return new Symbol(sym.noventayuno, yychar, yyline, yytext());}
-"ninetytwo"|"Ninetytwo"|"NINETYTWO" {return new Symbol(sym.noventaydos, yychar, yyline, yytext());}
-"onehundred"|"Onehundred"|"ONEHUNDRED" {return new Symbol(sym.cien, yychar, yyline, yytext());}
-"twohundred"|"Twohundred"|"TWOHUNDRED" {return new Symbol(sym.doscientos, yychar, yyline, yytext());}
-"onethousand"|"Onethousand"|"ONETHOUSAND" {return new Symbol(sym.mil, yychar, yyline, yytext());}
-"tenthousand"|"Tenthousand"|"TENTHOUSAND" {return new Symbol(sym.diezmil, yychar, yyline, yytext());}
-"onemillion"|"Onemillion"|"ONEMILLION" {return new Symbol(sym.unmillon, yychar, yyline, yytext());}
-"first"|"First"|"FIRST" {return new Symbol(sym.primero, yychar, yyline, yytext());}
-"second"|"Second"|"SECOND" {return new Symbol(sym.segundo, yychar, yyline, yytext());}
-"third"|"Third"|"THIRD" {return new Symbol(sym.tercera, yychar, yyline, yytext());}
-"fourth"|"Fourth"|"FOURTH" {return new Symbol(sym.cuatro, yychar, yyline, yytext());}
-"fifth"|"Fifth"|"FIFTH" {return new Symbol(sym.quinto, yychar, yyline, yytext());}
-"sixth"|"Sixth"|"SIXTH" {return new Symbol(sym.sexto, yychar, yyline, yytext());}
-"seventh"|"Seventh"|"SEVENTH" {return new Symbol(sym.septimo, yychar, yyline, yytext());}
-"eighth"|"Eighth"|"EIGHTH" {return new Symbol(sym.octavo, yychar, yyline, yytext());}
-"ninth"|"Ninth"|"NINTH" {return new Symbol(sym.noveno, yychar, yyline, yytext());}
-"tenth"|"Tenth"|"TENTH" {return new Symbol(sym.decimo, yychar, yyline, yytext());}
-"eleventh"|"Eleventh"|"ELEVENTH" {return new Symbol(sym.undecimo, yychar, yyline, yytext());}
-"twelfth"|"Twelfth"|"TWELFTH" {return new Symbol(sym.duodecimo, yychar, yyline, yytext());}
-"thirteenth"|"Thirteenth"|"THIRTEENTH" {return new Symbol(sym.decimotercero, yychar, yyline, yytext());}
-"fourteenth"|"Fourteenth"|"FOURTEENTH" {return new Symbol(sym.decimocuarto, yychar, yyline, yytext());}
-"fifteenth"|"Fifteenth"|"FIFTEENTH" {return new Symbol(sym.decimoquinto, yychar, yyline, yytext());}
-"sixteenth"|"Sixteenth"|"SIXTEENTH" {return new Symbol(sym.decimosexto, yychar, yyline, yytext());}
-"seventeenth"|"Seventeenth"|"SEVENTEENTH" {return new Symbol(sym.decimoseptimo, yychar, yyline, yytext());}
-"eighteenth"|"Eighteenth"|"EIGHTEENTH" {return new Symbol(sym.decimoctavo, yychar, yyline, yytext());}
-"nineteenth"|"Nineteenth"|"NINETEENTH" {return new Symbol(sym.decimonoveno, yychar, yyline, yytext());}
-"twentieth"|"Twentieth"|"TWENTIETH" {return new Symbol(sym.vigesimo, yychar, yyline, yytext());}
-"thirtieth"|"Thirtieth"|"THIRTIETH" {return new Symbol(sym.trigesimo, yychar, yyline, yytext());}
-"fortieth"|"Fortieth"|"FORTIETH" {return new Symbol(sym.cuadragesimo, yychar, yyline, yytext());}
+"Big" | "big" | "BIG" {return new Symbol(sym.BIG, yychar, yyline, yytext());}
+"Beautiful" | "beautiful" | "BEAUTIFUL" {return new Symbol(sym.BEAUTIFUL, yychar, yyline, yytext());}
+"Happy" | "happy" | "HAPPY" {return new Symbol(sym.HAPPY, yychar, yyline, yytext());}
+"Intelligent" | "intelligent" | "INTELLIGENT" {return new Symbol(sym.INTELLIGENT, yychar, yyline, yytext());}
+"Small" | "small" | "SMALL" {return new Symbol(sym.SMALL, yychar, yyline, yytext());}
+"Old" | "old" | "OLD" {return new Symbol(sym.OLD, yychar, yyline, yytext());}
+"Funny" | "funny" | "FUNNY" {return new Symbol(sym.FUNNY, yychar, yyline, yytext());}
+"Tall" | "tall" | "TALL" {return new Symbol(sym.TALL, yychar, yyline, yytext());}
+"Brave" | "brave" | "BRAVE" {return new Symbol(sym.BRAVE, yychar, yyline, yytext());}
+"Red" | "red" | "RED" {return new Symbol(sym.RED, yychar, yyline, yytext());}
+"Cold" | "cold" | "COLD" {return new Symbol(sym.COLD, yychar, yyline, yytext());}
+"Smart" | "smart" | "SMART" {return new Symbol(sym.SMART, yychar, yyline, yytext());}
+"Elegant" | "elegant" | "ELEGANT" {return new Symbol(sym.ELEGANT, yychar, yyline, yytext());}
+"Name" | "name" | "NAME" {return new Symbol(sym.NAME, yychar, yyline, yytext());}
 
-"fiftieth"|"Fiftieth"|"FIFTIETH" {return new Symbol(sym.quincuagesimo, yychar, yyline, yytext());} 
-"sixtieth"|"Sixtieth"|"SIXTIETH" {return new Symbol(sym.sexagesimo, yychar, yyline, yytext());} 
-"seventieth"|"Seventieth"|"SEVENTIETH" {return new Symbol(sym.septuagesimo, yychar, yyline, yytext());} 
 
-"eightieth"|"Eightieth"|"EIGHTIETH" {return new Symbol(sym.Dieciocho, yychar, yyline, yytext());}
-"ninetieth"|"Ninetieth"|"NINETIETH" {return new Symbol(sym.nonagesimo, yychar, yyline, yytext());}
-"ninetyfirst"|"Ninetyfirst"|"NINETYFIRST" {return new Symbol(sym.noventa, yychar, yyline, yytext());}
-"ninetysecond"|"Ninetysecond"|"NINETYSECOND" {return new Symbol(sym.nonagesimosegundo, yychar, yyline, yytext());}
-"ninetythird"|"Ninetythird"|"NINETYTHIRD" {return new Symbol(sym.nonagesimotercero, yychar, yyline, yytext());}
-"ninetyfourth"|"Ninetyfourth"|"NINETYFOURTH" {return new Symbol(sym.noventaycuatro, yychar, yyline, yytext());}
-"onehundredth"|"Onehundredth"|"ONEHUNDREDTH" {return new Symbol(sym.cien, yychar, yyline, yytext());}
-"onethousandth"|"Onethousandth"|"ONETHOUSANDTH" {return new Symbol(sym.unamilesima, yychar, yyline, yytext());}
-"onemillionth"|"Onemillionth"|"ONEMILLIONTH" {return new Symbol(sym.onemillonesimo, yychar, yyline, yytext());} 
-"all"|"All"|"ALL" {return new Symbol(sym.todos, yychar, yyline, yytext());}
-"any"|"Any"|"ANY" {return new Symbol(sym.ninguna, yychar, yyline, yytext());}
-"both"|"Both"|"BOTH" {return new Symbol(sym.ambascosas, yychar, yyline, yytext());}
-"each"|"Each"|"EACH" {return new Symbol(sym.cada, yychar, yyline, yytext());}
-"either"|"Either"|"EITHER" {return new Symbol(sym.cualquiera, yychar, yyline, yytext());}
-"enough"|"Enough"|"ENOUGH" {return new Symbol(sym.suficiente, yychar, yyline, yytext());}
-"few"|"Few"|"FEW" {return new Symbol(sym.pocos, yychar, yyline, yytext());}
-"less"|"Less"|"LESS" {return new Symbol(sym.menos, yychar, yyline, yytext());}
-"little"|"Little"|"LITTLE" {return new Symbol(sym.pequeo, yychar, yyline, yytext());}
-"much"|"Much"|"MUCH" {return new Symbol(sym.mucho, yychar, yyline, yytext());}
-"more"|"More"|"MORE" {return new Symbol(sym.mas, yychar, yyline, yytext());}
-"many"|"Many"|"MANY" {return new Symbol(sym.muchos, yychar, yyline, yytext());}
-"other"|"Other"|"OTHER" {return new Symbol(sym.otro, yychar, yyline, yytext());}
-"others"|"Others"|"OTHERS" {return new Symbol(sym.otros, yychar, yyline, yytext());}
-"several"|"Several"|"SEVERAL" {return new Symbol(sym.varios, yychar, yyline, yytext());}
-"some"|"Some"|"SOME" {return new Symbol(sym.algunos, yychar, yyline, yytext());}
- 
+
+                                //Posesivos (Adjetivos posesivos):
+
+"My" | "my" | "MY" {return new Symbol(sym.MY, yychar, yyline, yytext());}
+"Your" | "your" "YOUR" {return new Symbol(sym.YOUR, yychar, yyline, yytext());}
+"His" | "his" | "HIS" {return new Symbol(sym.HIS, yychar, yyline, yytext());}
+"Her" | "her" | "HER" {return new Symbol(sym.HER, yychar, yyline, yytext());}
+"Our" | "our" | "OUR" {return new Symbol(sym.OUR, yychar, yyline, yytext());}
+"Their" | "their" | "THEIR" {return new Symbol(sym.THEIR, yychar, yyline, yytext());}
+"Its" | "its" | "ITS" {return new Symbol(sym.ITS, yychar, yyline, yytext());}
+"Theirs" | "theirs" | "THEIRS" {return new Symbol(sym.THEIRS, yychar, yyline, yytext());}
+"Yours" | "yours" | "YOURS" {return new Symbol(sym.YOURS, yychar, yyline, yytext());}
+"Mine" | "mine" | "MINE" {return new Symbol(sym.MINE, yychar, yyline, yytext());}
+
+
+
+                                //Demostrativos (Pro_Demostrativos):
+"This" | "this" | "THIS" {return new Symbol(sym.THIS, yychar, yyline, yytext());}
+"That"| "that" | "THAT" {return new Symbol(sym.THAT, yychar, yyline, yytext());}
+"These" | "these"| "THESE" {return new Symbol(sym.THESE, yychar, yyline, yytext());}
+"Those" | "those"| "THOSE" {return new Symbol(sym.THOSE, yychar, yyline, yytext());}
+"Such" | "such" | "SUCH" {return new Symbol(sym.SUCH, yychar, yyline, yytext());}
+"Same" | "same" |"SAME" {return new Symbol(sym.SAME, yychar, yyline, yytext());}
+"Other" | "other" | "OTHER" {return new Symbol(sym.OTHER, yychar, yyline, yytext());}
+"Another" | "another"| "ANOTHER" {return new Symbol(sym.ANOTHER, yychar, yyline, yytext());}
+"Different" | "different" "DIFFERENT" {return new Symbol(sym.DIFFERENT, yychar, yyline, yytext());}
+"Certain" | "certain" | "CERTAIN" {return new Symbol(sym.CERTAIN, yychar, yyline, yytext());}
+"Various" | "various" | "VARIOUS" {return new Symbol(sym.VARIOUS, yychar, yyline, yytext());}
+
+
+                                //adjetivos calificativos
+
+"Amazing" | "amazing" |"AMAZING" {return new Symbol(sym.AMAZING, yychar, yyline, yytext());}
+"Delicious" | "delicious" |"DELICIOUS" {return new Symbol(sym.DELICIOUS, yychar, yyline, yytext());}
+"Exciting" | "exciting" |"EXCITING" {return new Symbol(sym.EXCITING, yychar, yyline, yytext());}
+"Interesting" | "interesting" | "INTERESTING" {return new Symbol(sym.INTERESTING, yychar, yyline, yytext());}
+"Lovely" | "lovely" | "LOVELY" {return new Symbol(sym.LOVELY, yychar, yyline, yytext());}
+"Charming" | "charming" | "CHARMING" {return new Symbol(sym.CHARMING, yychar, yyline, yytext());}
+"Wonderful" | "wonderful" | "WONDERFUL" {return new Symbol(sym.WONDERFUL, yychar, yyline, yytext());}
+"Excellent" | "excellent" |"EXCELLENT" {return new Symbol(sym.EXCELLENT, yychar, yyline, yytext());}
+"Fantastic" | "fantastic" | "FANTASTIC" {return new Symbol(sym.FANTASTIC, yychar, yyline, yytext());}
+"Incredible" | "incredible" | "INCREDIBLE" {return new Symbol(sym.INCREDIBLE, yychar, yyline, yytext());}
+
+
+
+                        //Indefinido (Adjetivos indefinidos):
+
+"Some" | "some" |  "SOME" {return new Symbol(sym.SOME, yychar, yyline, yytext());}
+"Any" | "any"   | "ANY"  {return new Symbol(sym.ANY, yychar, yyline, yytext());}
+"Several" | "several" | "SEVERAL"  {return new Symbol(sym.SEVERAL, yychar, yyline, yytext());}
+"Few" | "few" | "FEW"  {return new Symbol(sym.FEW, yychar, yyline, yytext());}
+"All " | "all"  | "ALL"   {return new Symbol(sym.ALL, yychar, yyline, yytext());}
+"Both" | "both" | "BOTH"  {return new Symbol(sym.BOTH, yychar, yyline, yytext());}
+"Every" | "every" |"EVERY"  {return new Symbol(sym.EVERY, yychar, yyline, yytext());}
+"Many" | "many" | "MANY" {return new Symbol(sym.MANY, yychar, yyline, yytext());}
+
+                //Interrogativos (Pronombres interrogativos):
+
+"Who" | "who" | "WHO" {return new Symbol(sym.WHO, yychar, yyline, yytext());}
+"What" | "what" | "WHAT" {return new Symbol(sym.WHAT, yychar, yyline, yytext());}
+"Where" | "where" | "WHERE" {return new Symbol(sym.WHERE, yychar, yyline, yytext());}
+"When" | "when" | "WHEN" {return new Symbol(sym.WHEN, yychar, yyline, yytext());}
+"Which" | "which" | "WHICH" {return new Symbol(sym.WHICH, yychar, yyline, yytext());}
+"Whose" | "whose" | "WHOSE" {return new Symbol(sym.WHOSE, yychar, yyline, yytext());}
+"Whom" | "whom" | "WHOM" {return new Symbol(sym.WHOM, yychar, yyline, yytext());}
+"Why" | "why" | "WHY" {return new Symbol(sym.WHY, yychar, yyline, yytext());}
+"How" | "how" | "HOW" {return new Symbol(sym.HOW, yychar, yyline, yytext());}
+
+
+
+                                //Numeral
+
+"One" | "one" | "ONE" {return new Symbol(sym.ONE, yychar, yyline, yytext());}
+"Two" | "two" | "TWO" {return new Symbol(sym.TWO, yychar, yyline, yytext());}
+"Three" | "three" | "THREE" {return new Symbol(sym.THREE, yychar, yyline, yytext());}
+"Four" | "four" | "FOUR" {return new Symbol(sym.FOUR, yychar, yyline, yytext());}
+"Five" | "five" | "FIVE" {return new Symbol(sym.FIVE, yychar, yyline, yytext());}
+"Six" | "six" | "SIX" {return new Symbol(sym.SIX, yychar, yyline, yytext());}
+"Seven" | "seven" | "SEVEN" {return new Symbol(sym.SEVEN, yychar, yyline, yytext());}
+"Eight" | "eight" | "EIGHT" {return new Symbol(sym.EIGHT, yychar, yyline, yytext());}
+"Nine" | "nine" | "NINE" {return new Symbol(sym.NINE, yychar, yyline, yytext());}
+"Ten" | "ten" | "TEN" {return new Symbol(sym.TEN, yychar, yyline, yytext());}
+"Eleven" | "eleven" | "ELEVEN" {return new Symbol(sym.ELEVEN, yychar, yyline, yytext());}
+"Twelve" | "twelve" | "TWELVE" {return new Symbol(sym.TWELVE, yychar, yyline, yytext());}
+"Twenty" | "twenty" | "TWENTY" {return new Symbol(sym.TWENTY, yychar, yyline, yytext());}
+"Hundred" | "hundred" | "HUNDRED" {return new Symbol(sym.HUNDRED, yychar, yyline, yytext());}
+        
+
+
+                                //Numeros cardinales
+
+"First" | "first" | "FIRST" {return new Symbol(sym.FIRST, yychar, yyline, yytext());}
+"Second" | "second" | "SECOND" {return new Symbol(sym.SECOND, yychar, yyline, yytext());}
+"Third" | "third" |"THIRD" {return new Symbol(sym.THIRD, yychar, yyline, yytext());}
+"Fourth" | "fourth" | "FOURTH" {return new Symbol(sym.FOURTH, yychar, yyline, yytext());}
+"Fifth" | "fifth" | "FIFTH" {return new Symbol(sym.FIFTH, yychar, yyline, yytext());}
+"Sixth" | "sixth" | "SIXTH" {return new Symbol(sym.SIXTH, yychar, yyline, yytext());}
+"Seventh" | "seventh" | "SEVENTH" {return new Symbol(sym.SEVENTH, yychar, yyline, yytext());}
+"Eighth" | "eighth" | "EIGHTH" {return new Symbol(sym.EIGHTH, yychar, yyline, yytext());}
+"Ninth" | "ninth" | "NINTH" {return new Symbol(sym.NINTH, yychar, yyline, yytext());}
+"Tenth" | "tenth" | "TENTH" {return new Symbol(sym.TENTH, yychar, yyline, yytext());}
+"Eleventh" | "eleventh" | "ELEVENTH" {return new Symbol(sym.ELEVENTH, yychar, yyline, yytext());}
+"Twelfth" | "twelfth" | "TWELFTH" {return new Symbol(sym.TWELFTH, yychar, yyline, yytext());}
+"Twentieth" | "twentieth" |"TWENTIETH" {return new Symbol(sym.TWENTIETH, yychar, yyline, yytext());}
+"Hundredth" | "hundredth" | "HUNDREDTH" {return new Symbol(sym.HUNDREDTH, yychar, yyline, yytext());}
+
+
+
+//Posesivos (Adjetivos posesivos):
+
+
+                                //Artículo
+
+"The" | "the" | "THE"  {return new Symbol(sym.THE, yychar, yyline, yytext());}
+"A"| "a" | "A"  {return new Symbol(sym.A, yychar, yyline, yytext());}
+"An" | "an" | "AN" {return new Symbol(sym.AN, yychar, yyline, yytext());}
+
+
+Adverbio:
+"Quickly"  | "quickly" | "QUICKLY" {return new Symbol(sym.QUICKLY, yychar, yyline, yytext());}
+"Here"  | "here" | "HERE" {return new Symbol(sym.HERE, yychar, yyline, yytext());}
+"Much"  | "much" | "MUCH" {return new Symbol(sym.MUCH, yychar, yyline, yytext());}
+"Slowly"  | "slowly" | "SLOWLY" {return new Symbol(sym.SLOWLY, yychar, yyline, yytext());}
+"Quietly"  | "quietly" | "QUIETLY" {return new Symbol(sym.QUIETLY, yychar, yyline, yytext());}
+"Happily"  | "happily" | "HAPPILY" {return new Symbol(sym.HAPPILY, yychar, yyline, yytext());}
+"Easily"  | "easily" | "EASILY" {return new Symbol(sym.EASILY, yychar, yyline, yytext());}
+"Carefully"  | "carefully" | "CAREFULLY" {return new Symbol(sym.CAREFULLY, yychar, yyline, yytext());}
+"Loudly"  | "loudly" | "LOUDLY" {return new Symbol(sym.LOUDLY, yychar, yyline, yytext());}
+"Well"  | "well" | "WELL" {return new Symbol(sym.WELL, yychar, yyline, yytext());}
+"Never"  | "never" | "NEVER" {return new Symbol(sym.NEVER, yychar, yyline, yytext());}
+"Always"  | "always" | "ALWAYS" {return new Symbol(sym.ALWAYS, yychar, yyline, yytext());}
 
 
 
 
-"on"|"On"|"ON" {return new Symbol(sym.sobre, yychar, yyline, yytext());}
-"about"|"About"|"ABOUT" {return new Symbol(sym.acercade, yychar, yyline, yytext());}
 
+                                //Signos de Puntuación:
+
+
+"." {return new Symbol(sym.punn, yychar, yyline, yytext());}
+"comii" {return new Symbol(sym.comm, yychar, yyline, yytext());}
+"comipun" {return new Symbol(sym.puncom, yychar, yyline, yytext());}
+"dosssp" {return new Symbol(sym.dospum, yychar, yyline, yytext());}
+"!" {return new Symbol(sym.cerrad, yychar, yyline, yytext());}
+"?" {return new Symbol(sym.cerrin, yychar, yyline, yytext());}
+"(" {return new Symbol(sym.abrpar, yychar, yyline, yytext());}
+")" {return new Symbol(sym.cerrpar, yychar, yyline, yytext());}
+"[" {return new Symbol(sym.abrllac, yychar, yyline, yytext());}
+"]" {return new Symbol(sym.cerrllac, yychar, yyline, yytext());}
+
+
+
+
+----ERROR----
+{L}({L}|{D})* {return new Symbol(sym.ERROR, yychar, yyline, yytext());}

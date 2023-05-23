@@ -14,36 +14,144 @@ parser code
 }  
 :};
 
-terminal I, YOU, HE, SHE, IT, WE, THEY, AM, ARE, IS,
 
-yo,tu,el,ella,ello,eso,nosotros,ellos,soy,esta,estas,mi,su,nuestro,este,estos,ese,aquellas,amigable,sensitivo,generoso,
-grande,antiguo,hermoso,torpe,peludo,joven,rpido,bonito,loco,acogedor,maravilloso,esplndido,fantstico,increble,vistoso,ancestral,
-cmodo,doloroso,verde,amarillo,rojizo,comn,extrao,enrgico,resbaladizo,profundo,
-enorme,roto,afilado,triangular,endeble,baboso,aceitoso,insignificante,cursi,brillante,puro,ondulado,
-bastante,guapo,elegante,enojado,cido,delicado,departamento,fresco,privado,suave,alto,grueso,hambriento,luz,lento,caliente,
-ormido,despierto,lleno,slido,hmedo,fro,pesado,sucio,triste,feo,seco,superficial,pequea,corto,corajudo,confidente,vago,grave,
-delgado,ambicioso,travieso,Cuidado,aburrido,interesante,divertido,prctico,orgulloso,aventurero,ausente,impaciente,tmido,cero,uno,dos,
-Tres,cuatro,cinco,seis,Siete,ocho,nueve,diez,once,doce,trece,catorce,quince,diecisis,dediecisiete,Dieciocho,diecinueve,treinta,Cuarenta,
-cincuenta,sesenta,setenta,ochenta,noventa,noventayuno,noventaydos,cien,doscientos,mil,diezmil,unmilln,primero,segundo,tercera,quinto,sexto,
-sptimo,octavo,noveno,decimo,ndcimo,duodcimo,decimotercero,decimocuarto,decimoquinto,decimosexto,decimosptimo,decimoctavo,decimonoveno,vigsimo,
-trigsimo,cuadragsimo,quincuagsimo,sexagsimo,septuagsimo,dieciocho,nonagsimo,nonagesimosegundo,nonagesimotercero,noventaycuatro,unamilsima,Onemillonsimo,
-todos,ninguna,ambascosas,cada,o,suficiente,pocos,menos,pequeo,mucho,ms,muchos,otro,otros,varios,algunos,tal,sexagesimo,trigesimo,diecisiete,cuadragesimo,
-quincuagesimo,septimo,decimoseptimo,dieciseis,vigesimo,duodecimo,timido,nonagesimo,practico,septuagesimo,undecimo,unmillon,onemillonesimo,mas,
-unamilesima,en,sobre,acercade,alrededor,durante,pasado,yaque,para,hasta,despues,entre,antesde,detras,abajo,alladode,ente,
-por,lejosde,desde,apagado,terminado,fuerade,y,pero,sinembargo,solamente,asique,entonces,sino,delocontrario,aun,aunque,como,si,tantos,nocomo,
-menosque,encaso,Hurra,yippee,rudon,bingo,mmm,beque,camiseta,puaj,oh,no,na,ejem,oye,argh,maldito, cualquiera,
-jerga,brusco,diosmio,guau,abucheo,meh,shh,hola,ojala,ba,elde,hacia,unos,eres,es,Linea,cielos,
-Error,
-perro, carro, libro, casa, gato, silla, árbol, flor, mesa, bolígrafo, computadora, teléfono, sol, estantería,
-Sustantivo;
+terminal terminal    //pronombres
+        I,       YOU,       HE,         SHE,       IT,     WE,
+        THEY,    AM,        ARE,        IS,        US,      THEM, 
+        HIM,     MYSELF,     YOURSELF,  ME,
+       
+     //SUSTANTIVOS
+        DOG,    CAR,        BOOK,       HOUSE,      CAT,        CHAIR,
+        TREE,   FLOWER,     TABLE,      PEN,        COMPUTER,   PHONE,
+        SUN,    BOOKSHELF,  HELLO,      HI,
+       
+    //ADJETIVOS 
+        BIG,    BEAUTIFUL,      HAPPY,      INTELLIGENT,        SMALL,
+        OLD,    FUNNY,          TALL,       BRAVE,              RED,
+        COLD,   SMART,          ELEGANT,    NAME,
+                
+    //ADJETIVOS POSESIVOS
+        MY,      YOUR,      HIS,        HER,    OUR,    THEIR,
+        ITS,     THEIRS,    YOURS,      MINE,
+       
+    //ADJETIVOS DEMOSTRATIVOS
+        THIS,   THAT,       THESE,      THOSE,      SUCH,   SAME,
+        OTHER, ANOTHER,    DIFFERENT,  CERTAIN,    VARIOUS,
+        
+    //Adjetivos Calificativos
+        AMAZING,    DELICIOUS,      EXCITING,       INTERESTING,        LOVELY,
+        CHARMING,   WONDERFUL,      EXCELLENT,      FANTASTIC,          INCREDIBLE,
+    
+    //Adjetivos Indefinidos
+        SOME,       ANY,        SEVERAL,    FEW,        ALL,        BOTH,   EVERY,
+        MANY,
+        
+    //Pronombres Interrogativos
+        WHO,        WHAT,       WHERE,      WHEN,       WHICH,      WHOSE,
+        WHOM,       WHY,        HOW,        
+    //Numeral
+        ONE,        TWO,        THREE,      FOUR,       FIVE,       SIX,        SEVEN,
+        EIGHT,      NINE,       TEN,        ELEVEN,     TWELVE,     TWENTY,     HUNDRED,
+        
+    //Numeros Cardinales
+        FIRST,      SECOND,     THIRD,      FOURTH,     FIFTH,      SIXTH,      SEVENTH,
+        EIGHTH,     NINTH,      TENTH,      ELEVENTH,   TWELFTH,    TWENTIETH,  HUNDREDTH,
+        
+    //PUNTUACION
+        nadaa,      punn,       comm,       puncom,     dospum,     cerrad,
+        cerrin,     abrpar,     cerrpar,    abrllac,    cerrllac,
+    //ADVERBIO
+        QUICKLY,            HERE,           MUCH,           SLOWLY,         QUIETLY,
+        HAPPILY,            EASILY,         CAREFULLY,      LOUDLY,         WELL,
+        NEVER,              ALWAYS,
+        
+    //ERROR
+        ERROR,
+    //Articulo
+        AND, OR,
+        THE,    A,          AN;
 
-non terminal INICIO,AD_POSESIVOS;
+non terminal
+    SENTENCIA, SIMPLESENTENCIA, COMPUESTASENTENCIA, SUJETO, PREDICADO, CONJUNCION, PRONOMBRE, FRASENOMINAL, FRASEVERBAL, ARTICULO,
+    ADVERBIO, ADJETIVO, SUSTANTIVO, VERBO, FRASE, PUNTUACION, PARRAFO;
 
-start with INICIO ;
+start with PARRAFO;
 
-INICIO ::= yo tu el
+PARRAFO ::=
+            SENTENCIA PUNTUACION
 ;
 
-AD_POSESIVOS ::=
-    Hurra
+SENTENCIA ::=
+                SIMPLESENTENCIA  | COMPUESTASENTENCIA
+;
+SIMPLESENTENCIA ::=
+                SUJETO PREDICADO    
+;
+
+COMPUESTASENTENCIA ::=
+                 SIMPLESENTENCIA CONJUNCION SIMPLESENTENCIA
+;
+
+
+SUJETO ::=
+                PRONOMBRE  | FRASENOMINAL
+;
+
+ADVERBIO ::=    
+                QUICKLY | SLOWLY
+;
+
+
+
+PREDICADO ::=
+                FRASEVERBAL
+;
+
+FRASENOMINAL ::=
+                    ARTICULO ADJETIVO SUSTANTIVO | ARTICULO SUSTANTIVO //|PRONOMBRE
+;
+
+
+FRASEVERBAL ::=
+                VERBO ADVERBIO | VERBO ADJETIVO ADVERBIO
+;
+
+
+
+SUSTANTIVO ::=
+                DOG | CAR | BOOK | HOUSE | CAT | CHAIR | TREE | FLOWER |
+                TABLE | PEN | COMPUTER | PHONE | SUN | BOOKSHELF | HELLO | HI
+;
+
+VERBO ::=
+                AM | ARE | IS
+;
+PRONOMBRE ::=
+                I | YOU | HE | SHE | IT | WE | THEY | US | THEM | HIM | MYSELF | YOURSELF | ME
+;
+
+
+CONJUNCION ::=
+                AND | OR
+;
+
+
+PUNTUACION ::=  
+                nadaa | punn | comm | puncom | dospum | cerrad | cerrin | abrpar | cerrpar | abrllac | cerrllac
+;
+
+
+ARTICULO ::=
+                THE | A | AN
+;
+
+ADJETIVO ::=
+                BIG | BEAUTIFUL | HAPPY | INTELLIGENT | SMALL   | OLD | FUNNY | TALL | BRAVE | RED |
+                COLD | SMART | ELEGANT | NAME | CERTAIN | VARIOUS | AMAZING | DELICIOUS | EXCITING |
+                INTERESTING | LOVELY | CHARMING | WONDERFUL | EXCELLENT | FANTASTIC | INCREDIBLE
+;
+
+	
+Error ::=   
+                ERROR
 ;

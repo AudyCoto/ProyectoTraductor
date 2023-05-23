@@ -16,6 +16,16 @@ espacio=[ ,\t,\r]+
 %%
 "\n" {return Linea;}
 
+
+
+
+
+
+
+
+
+------------------------
+
 //PRONOMBRES
 "I" | "i" {lexeme=yytext(); return yo;}
 "You" | "you" {lexeme=yytext(); return tu;}
@@ -28,7 +38,7 @@ espacio=[ ,\t,\r]+
 "Are" | "are" | "ARE" {lexeme=yytext(); return eres;}
 "Is" | "is" | "IS" {lexeme=yytext(); return es;}
 
-
+-----------------------------------------------------------------------------------------------
 
 
 //SUSTANTIVOS

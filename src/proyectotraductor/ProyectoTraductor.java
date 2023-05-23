@@ -34,6 +34,7 @@ public class ProyectoTraductor {
         
 
         new Principal().setVisible(true);
+   
     }
     
 }
