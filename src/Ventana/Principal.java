@@ -44,7 +44,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtTraduccion = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        txtError = new javax.swing.JTextArea();
+        txtSintac = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtLexico = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -62,7 +62,6 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 740));
-        setPreferredSize(new java.awt.Dimension(1000, 740));
         setSize(new java.awt.Dimension(1000, 740));
         getContentPane().setLayout(null);
 
@@ -81,9 +80,9 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(40, 260, 900, 130);
 
-        txtError.setColumns(20);
-        txtError.setRows(5);
-        jScrollPane3.setViewportView(txtError);
+        txtSintac.setColumns(20);
+        txtSintac.setRows(5);
+        jScrollPane3.setViewportView(txtSintac);
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(40, 420, 300, 280);
@@ -155,7 +154,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setBounds(460, 400, 90, 17);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("-- SEMANTICO --");
+        jLabel6.setText("-- ARBOL --");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(740, 400, 130, 17);
 
@@ -173,20 +172,35 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraducirActionPerformed
-        
-        String Parrafo = remplac(txtTraducir.getText());
-        //System.out.println("|||||"+Parrafo);
+       //TRADUCCION
+        String Parrafo = remplac(txtTraducir.getText()); 
         Traductor traduc = new Traductor();
-        String temporal=remplac2(traduc.traducir(Parrafo) );
-        //System.out.println("|||||"+temporal);
+        String temporal=remplac2(traduc.traducir(Parrafo)); 
+        
         txtTraduccion.setText(temporal);
-        analizador sin = new analizador();
-        sin.sintactico();
-        txtError.setText(traduc.Error);
+        
+        //ANALIZADOR LEXICO
+     
+     
         
         txtLexico.setText(traduc.LisToken);
+        analizador sin = new analizador();
         
-        txtError.setForeground(Color.red);
+        //ANALIZADOR SINTACTICO
+        String resultado = sin.sintactico2(txtTraducir.getText());
+        if(resultado.equals("Análisis sintáctico exitoso.")){
+         txtSintac.setForeground(new Color(25, 111, 61));   
+         
+        }
+        else{
+            txtSintac.setForeground(Color.red);
+        }
+        txtSintac.setText(resultado);
+        
+        
+        
+        
+       
     }//GEN-LAST:event_btnTraducirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -195,7 +209,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void LIMPIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LIMPIARActionPerformed
-        txtError.setText("");
+        txtSintac.setText("");
         txtLexico.setText("");
         txtTraduccion.setText("");
         txtTraducir.setText("");
@@ -233,8 +247,7 @@ public class Principal extends javax.swing.JFrame {
         return cadena_nueva;
     }
         
-    
-    public String remplac(String cadena){
+        public String remplac(String cadena){
         String cadena_nueva="";
         cadena_nueva=cadena.replaceAll("\\."," \\. " );
         cadena_nueva=cadena_nueva.replaceAll("\\,"," comii " );
@@ -247,7 +260,7 @@ public class Principal extends javax.swing.JFrame {
         cadena_nueva=cadena_nueva.replaceAll("\\["," \\[ " );
         cadena_nueva=cadena_nueva.replaceAll("\\]"," \\] " );     
         return cadena_nueva;
-    }
+        }
     /**
      * @param args the command line arguments
      */
@@ -300,9 +313,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea txtError;
     private javax.swing.JTextArea txtLexico;
     private javax.swing.JTextArea txtSemantico;
+    private javax.swing.JTextArea txtSintac;
     private javax.swing.JTextArea txtTraduccion;
     private javax.swing.JTextArea txtTraducir;
     // End of variables declaration//GEN-END:variables

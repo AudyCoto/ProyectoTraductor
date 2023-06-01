@@ -78,14 +78,14 @@ non terminal
 start with PARRAFO;
 
 PARRAFO ::=
-            SENTENCIA PUNTUACION
+            SENTENCIA |  SENTENCIA PUNTUACION
 ;
 
 SENTENCIA ::=
                 SIMPLESENTENCIA  | COMPUESTASENTENCIA
 ;
 SIMPLESENTENCIA ::=
-                SUJETO PREDICADO    
+                SUJETO |SUJETO PREDICADO      
 ;
 
 COMPUESTASENTENCIA ::=
