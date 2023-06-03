@@ -5,11 +5,26 @@
  */
 package Ventana;
 
+import analizadores.Nodo;
+import analizadores.Sintax;
 import analizadores.Traductor;
 import java.awt.Color;
 import java_cup.Lexer;
 import java_cup.parser;
 import analizadores.analizador;
+import java.awt.Desktop;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java_cup.runtime.Symbol;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +36,7 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Lexer lexer;
-    public parser parser;
+    public Sintax parser;
     
     
     public Principal() {
@@ -171,6 +186,9 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    
+    
     private void btnTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraducirActionPerformed
        //TRADUCCION
         String Parrafo = remplac(txtTraducir.getText()); 
@@ -181,12 +199,12 @@ public class Principal extends javax.swing.JFrame {
         
         //ANALIZADOR LEXICO
      
-     
         
         txtLexico.setText(traduc.LisToken);
-        analizador sin = new analizador();
+        //ANALIZADOR SINTACTICO 
         
-        //ANALIZADOR SINTACTICO
+             
+        analizador sin = new analizador();
         String resultado = sin.sintactico2(txtTraducir.getText());
         if(resultado.equals("Análisis sintáctico exitoso.")){
          txtSintac.setForeground(new Color(25, 111, 61));   
@@ -197,12 +215,28 @@ public class Principal extends javax.swing.JFrame {
         }
         txtSintac.setText(resultado);
         
-        
-        
-        
+        //-----------grafico-----------
+        String Entrada = txtTraducir.getText();
+        sin.graficador(Entrada);
+//        
+//        String resultado2;
+//        String TextAnalizar2 = remplac(txtTraducir.getText());
+//        
+//        Sintax parser = new Sintax(new LexerCup(new StringReader(TextAnalizar)));
+//        Symbol symbol = parser.parse();
+//        
        
     }//GEN-LAST:event_btnTraducirActionPerformed
 
+ 
+
+        
+       
+    
+    
+    
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
         

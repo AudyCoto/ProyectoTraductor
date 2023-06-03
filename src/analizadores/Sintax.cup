@@ -1,8 +1,43 @@
 package analizadores;
-import java_cup.runtime.Symbol;
+
+import java.util.LinkedList;
+import java_cup.runtime.*;
 
 parser code
 {:
+
+	public static Nodo padre;
+	public int contador=0;
+
+	//Listas para almacenar las PALABRAS RESERVADAS, SIMBOLOS, CADENAS Y VALORES NUMÉRICOS
+	public static LinkedList<String> PalabraReservada = new LinkedList<String>();
+	public static LinkedList<String> Simbolo = new LinkedList<String>();
+	public static LinkedList<String> Cadenas = new LinkedList<String>();
+        public static LinkedList<String> Variables = new LinkedList<String>();
+	public static LinkedList<String> ValoresNumericos = new LinkedList<String>();
+	
+        public static LinkedList<String> Errores = new LinkedList<String>();
+
+    
+    /**
+     * Método al que se llama automáticamente ante algún error sintactico.
+     **/
+/* 
+    public void syntax_error(Symbol s){ 
+            System.err.println("Error Sintáctico en la Línea " + (s.left) +" Columna "+s.right+ ". No se esperaba este componente: " +s.value+".");
+            parser.Errores.add("Error Sintáctico en la Línea " + (s.left) +" Columna "+s.right+ ". No se esperaba este componente: " +s.value+". \n");
+    }
+*/ 
+    /**
+     * Método al que se llama en el momento en que ya no es posible una recuperación de errores.
+     **/ 
+/*
+      public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
+            System.err.println("Error síntactico irrecuperable en la Línea " + (s.left)+ " Columna "+s.right+". Componente " + s.value + " no reconocido."); 
+            parser.Errores.add("Error Sintáctico en la Línea " + (s.left) +" Columna "+s.right+ ". No se esperaba este componente: " +s.value+". \n");
+    }
+*/  
+
     private Symbol s;
 
     public void syntax_error(Symbol s){
@@ -15,21 +50,50 @@ parser code
 :};
 
 
-terminal terminal    //pronombres
+terminal terminal    
+
+    //pronombres
         I,       YOU,       HE,         SHE,       IT,     WE,
         THEY,    AM,        ARE,        IS,        US,      THEM, 
         HIM,     MYSELF,     YOURSELF,  ME,
        
-     //SUSTANTIVOS
-        DOG,    CAR,        BOOK,       HOUSE,      CAT,        CHAIR,
-        TREE,   FLOWER,     TABLE,      PEN,        COMPUTER,   PHONE,
-        SUN,    BOOKSHELF,  HELLO,      HI,
+    
+    //SUSTANTIVOS
+        DOG,        CAR,        BOOK,       HOUSE,      CAT,        CHAIR,
+        TREE,       FLOWER,     TABLE,      PEN,        COMPUTER,   PHONE,
+        SUN,        BOOKSHELF,  HELLO,      HI,         CLOCK,      PENCIL,
+        DOOR,       FISH,       MOON,       RIVER,      LAMP,       STRANGER,
+        BED,        SHIRT,      HAT,        SHOE,       BALL,
+        TIGER,      KEY,        WALLET,     WATCH,      PICTURE,
+        TELEVISION, GUITAR,     MUSIC,      IMAGE,      GARDEN,
+        BEACH,      AIRPLANE,   TRAIN,      SALAD,      PIZZA,
+        ICECREAM,   ORANGE,     APPLE,      BANANA,     TOMATO,
+        POTATO,     CHICKEN,    COW,        HORSE,      ELEPHANT,
+        LION,       MONKEY,     GIRAFFE,    RABBIT,     SNAKE,
+        SPIDER,     ANT,        BEE,        BUTTERFLY,  TEACHER,
+        DOCTOR,     NURSE,      PILOT,      ACTOR,      SINGER,
+        ARTIST,     SCIENTIST,  ENGINEER,   LAWYER,     STUDENT,
+        CHILD,      ADULT,      PARENT,     FRIEND,     NEIGHBOR,
+        UNKNOWN,    HERO,
+
        
     //ADJETIVOS 
-        BIG,    BEAUTIFUL,      HAPPY,      INTELLIGENT,        SMALL,
-        OLD,    FUNNY,          TALL,       BRAVE,              RED,
-        COLD,   SMART,          ELEGANT,    NAME,
-                
+        BIG,            BEAUTIFUL,      HAPPY,      INTELLIGENT,    SMALL,
+        OLD,            FUNNY,          TALL,       BRAVE,          RED,
+        COLD,           SMART,          ELEGANT,    NAME,           FUN,
+        KIND,           GENEROUS,       CREATIVE,   SINCERE,        PASSIONATE, 
+        PATIENT,        RESPONSIBLE,    JOYFUL,     JOVIAL,         STRONG,
+        TOUGH,          HUMBLE,         LOYAL,      WITTY,          GRACIOUS,
+        AFFECTIONATE,   DETERMINED,     GENTLE,     FRIENDLY,       HONEST,
+        ADVENTUROUS,    QUIET,          CURIOUS,    ENERGETIC,      RELIABLE,
+        SHY,            ADMIRABLE,      CHEERFUL,   DILIGENT,       OPTIMISTIC,
+        GENUINE,        GRATEFUL,       INVENTIVE,  RELAXED,        PEACEFUL,
+        SENSITIVE,      THOUGHTFUL,     ADAPTABLE,  COMPASSIONATE,  DYNAMIC,
+        ENTHUSIASTIC,   COURTEOUS,      INNOVATIVE, MODEST,         CLEVER,
+        SOCIABLE,       TALENTED,       VERSATILE,  CALM,
+        BRILLIANT,
+
+
     //ADJETIVOS POSESIVOS
         MY,      YOUR,      HIS,        HER,    OUR,    THEIR,
         ITS,     THEIRS,    YOURS,      MINE,
@@ -38,9 +102,22 @@ terminal terminal    //pronombres
         THIS,   THAT,       THESE,      THOSE,      SUCH,   SAME,
         OTHER, ANOTHER,    DIFFERENT,  CERTAIN,    VARIOUS,
         
+
     //Adjetivos Calificativos
         AMAZING,    DELICIOUS,      EXCITING,       INTERESTING,        LOVELY,
         CHARMING,   WONDERFUL,      EXCELLENT,      FANTASTIC,          INCREDIBLE,
+        LOW,        SAD,            UGLY,           FAST,               CLEAN,
+        WEAK,       STUPID,         BAD,            COWARDLY,           DIRTY,
+        BORING,     CUNNING,        TIRED,          NOISY,              SHORT,
+        SOFT,       PLEASANT,       POLITE,         DISCOURTEOUS,       DISGUSTING,
+        CUTE,       CLUMSY,         WISE,           FOOLISH,            DISHONEST,
+        ANXIOUS,    INDIFFERENT,    SELFISH,        IMPATIENT,          SLOW,
+        CONFIDENT,  INSECURE,       CAUTIOUS,       PESSIMISTIC,        HARSH,
+        REPULSIVE,  ARROGANT,       ATHLETIC,       INDEPENDENT,        DEPENDENT,
+        FIERCE,     HOT,            HOSTILE,        UNFAITHFUL,         CARING,
+        LOUD,       RUDE,           ROUGH,          SHINY,              HARD,
+        SILLY,      DULL,           NICE,           GORGEOUS,         
+
     
     //Adjetivos Indefinidos
         SOME,       ANY,        SEVERAL,    FEW,        ALL,        BOTH,   EVERY,
@@ -66,23 +143,56 @@ terminal terminal    //pronombres
         NEVER,              ALWAYS,
         
     //ERROR
-        ERROR,
+        //ERROR,
     //Articulo
         AND, OR,
         THE,    A,          AN;
 
 non terminal
     SENTENCIA, SIMPLESENTENCIA, COMPUESTASENTENCIA, SUJETO, PREDICADO, CONJUNCION, PRONOMBRE, FRASENOMINAL, FRASEVERBAL, ARTICULO,
-    ADVERBIO, ADJETIVO, SUSTANTIVO, VERBO, FRASE, PUNTUACION, PARRAFO;
+    ADVERBIO, ADJETIVO, SUSTANTIVO, VERBO, FRASE, PUNTUACION, PARRAFO, SALUDO;
 
 start with PARRAFO;
 
 PARRAFO ::=
-            SENTENCIA |  SENTENCIA PUNTUACION
+    SENTENCIA:instr
+    {:
+
+    Nodo nd = new Nodo("PARRAFO");
+    nd.setIdNod(parser.contador++);
+
+    nd.AddHijos((Nodo) instr);
+    parser.padre = (Nodo) nd;
+    System.out.println(parser.padre);
+    RESULT = instr;
+    :}
+    |  SENTENCIA:s1 PUNTUACION:s2
+    {:
+    Nodo tmp = new Nodo("PARRAFO");
+    tmp.setValor(" Parrafo");
+    tmp.setIdNod(parser.contador++);
+    tmp.AddHijos((Nodo) s1);
+    tmp.AddHijos((Nodo) s2);
+    RESULT=tmp;
+    :}
 ;
 
 SENTENCIA ::=
-                SIMPLESENTENCIA  | COMPUESTASENTENCIA
+        SIMPLESENTENCIA:instr
+          {:
+
+            Nodo nd = new Nodo("SIMPLESENTENCIA");
+            nd.setIdNod(parser.contador++);
+            nd.AddHijos((Nodo) instr);
+            nd.AddHijos((Nodo) nd);
+            RESULT = instr;
+            :}
+
+        | COMPUESTASENTENCIA
+        | SALUDO
+;
+SALUDO ::= 
+    HI | HELLO
 ;
 SIMPLESENTENCIA ::=
                 SUJETO |SUJETO PREDICADO      
@@ -151,7 +261,3 @@ ADJETIVO ::=
                 INTERESTING | LOVELY | CHARMING | WONDERFUL | EXCELLENT | FANTASTIC | INCREDIBLE
 ;
 
-	
-Error ::=   
-                ERROR
-;

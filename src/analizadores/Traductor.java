@@ -20,8 +20,6 @@ import java_cup.runtime.Symbol;
  */
 public class Traductor {
     
- 
-    
     public String Error;
     public String LisToken;
     public String traducir(String textingresado){
@@ -90,6 +88,8 @@ public class Traductor {
         
         return resultado;
     }
+    
+    
     
         public String remplac2(String cadena){
         String cadena_nueva="";
