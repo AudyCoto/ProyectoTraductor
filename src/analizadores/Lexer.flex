@@ -70,8 +70,6 @@ espacio=[ ,\t,\r]+
 "Hat" | "hat" | "HAT" {lexeme=yytext();tipo=Sustantivo;traduccion=sombrero; return HAT;}
 "Shoe" | "shoe" | "SHOE" {lexeme=yytext();tipo=Sustantivo;traduccion=zapato; return SHOE;}
 "Ball" | "ball" | "BALL" {lexeme=yytext();tipo=Sustantivo;traduccion=pelota; return BALL;}
-
-
 "Pencil" | "pencil" | "PENCIL" {lexeme=yytext();tipo=Sustantivo;traduccion=lapiz; return PENCIL;}
 "Key" | "key" | "KEY" {lexeme=yytext();tipo=Sustantivo;traduccion=llave; return KEY;}
 "Wallet" | "wallet" | "WALLET" {lexeme=yytext();tipo=Sustantivo;traduccion=billetera; return WALLET;}
@@ -198,7 +196,6 @@ espacio=[ ,\t,\r]+
 "Honest" | "honest" | "HONEST" {lexeme=yytext();tipo=Adjetivo;traduccion=honesto; return HONEST;}
 "Adventurous" | "adventurous" | "ADVENTUROUS" {lexeme=yytext();tipo=Adjetivo;traduccion=aventurero; return ADVENTUROUS;} 
 "Curious" | "curious" | "CURIOUS" {lexeme=yytext();tipo=Adjetivo;traduccion=curioso; return CURIOUS;}
-"Energetic" | "energetic" | "ENERGETIC" {lexeme=yytext();tipo=Adjetivo;traduccion=energetico; return ENERGETIC;}
 "Patient" | "patient" | "PATIENT" {lexeme=yytext();tipo=Adjetivo;traduccion=paciente; return PATIENT;}
 "Reliable" | "reliable" | "RELIABLE" {lexeme=yytext();tipo=Adjetivo;traduccion=confiable; return RELIABLE;}
 "Shy" | "shy" | "SHY" {lexeme=yytext();tipo=Adjetivo;traduccion=timido; return SHY;}
@@ -218,8 +215,7 @@ espacio=[ ,\t,\r]+
 "Thoughtful" | "thoughtful" | "THOUGHTFUL" {lexeme=yytext();tipo=Adjetivo;traduccion=pensativo; return THOUGHTFUL;}
 "Adaptable" | "adaptable" | "ADAPTABLE" {lexeme=yytext();tipo=Adjetivo;traduccion=adaptable; return ADAPTABLE;}
 "Compassionate" | "compassionate" | "COMPASSIONATE" {lexeme=yytext();tipo=Adjetivo;traduccion=compasivo; return COMPASSIONATE;}
-"Determined" | "determined" | "DETERMINED" {lexeme=yytext();tipo=Adjetivo;traduccion=determinado; return DETERMINED;}
-"Energetic" | "energetic" | "ENERGETIC" {lexeme=yytext();tipo=Adjetivo;traduccion=energetico; return ENERGETIC;} 
+"Determined" | "determined" | "DETERMINED" {lexeme=yytext();tipo=Adjetivo;traduccion=determinado; return DETERMINED;} 
 "Genuine" | "genuine" | "GENUINE" {lexeme=yytext();tipo=Adjetivo;traduccion=genuino; return GENUINE;}
 "Grateful" | "grateful" | "GRATEFUL" {lexeme=yytext();tipo=Adjetivo;traduccion=agradecido; return GRATEFUL;}
 "Inventive" | "inventive" | "INVENTIVE" {lexeme=yytext();tipo=Adjetivo;traduccion=inventivo; return INVENTIVE;}
@@ -261,9 +257,9 @@ espacio=[ ,\t,\r]+
 "Thoughtful" | "thoughtful" | "THOUGHTFUL" {lexeme=yytext();tipo=Adjetivo;traduccion=pensativo; return THOUGHTFUL;}
 "Adaptable" | "adaptable" | "ADAPTABLE" {lexeme=yytext();tipo=Adjetivo;traduccion=adaptable; return ADAPTABLE;} 
 "Compassionate" | "compassionate" | "COMPASSIONATE" {lexeme=yytext();tipo=Adjetivo;traduccion=compasivo; return COMPASSIONATE;}
-"Determined" | "determined" | "DETERMINED" {lexeme=yytext();tipo=Adjetivo;traduccion=determinado; return DETERMINED;}
-"Energetic" | "energetic" | "ENERGETIC" {lexeme=yytext();tipo=Adjetivo;traduccion=energetico; return ENERGETIC;}
+"Determined" | "determined" | "DETERMINED" {lexeme=yytext();tipo=Adjetivo;traduccion=determinado; return DETERMINED;} 
 "Genuine" | "genuine" | "GENUINE" {lexeme=yytext();tipo=Adjetivo;traduccion=genuino; return GENUINE;}
+"Welcome" | "welcome" | "WELCOME" {lexeme=yytext();tipo=Adjetivo;traduccion=bienvenido; return WELCOME;}
 
 
 
@@ -317,8 +313,7 @@ espacio=[ ,\t,\r]+
 "Bad" | "bad" | "BAD" {lexeme=yytext();tipo=Adjetivo;traduccion=malo; return BAD;}
 "Cowardly" | "cowardly" | "COWARDLY" {lexeme=yytext();tipo=Adjetivo;traduccion=cobarde; return COWARDLY;}
 "Funny" | "funny" | "FUNNY" {lexeme=yytext();tipo=Adjetivo;traduccion=divertido; return FUNNY;}
-"Boring" | "boring" | "BORING" {lexeme=yytext();tipo=Adjetivo;traduccion=aburrido; return BORING;}
-"Clever" | "clever" | "CLEVER" {lexeme=yytext();tipo=Adjetivo;traduccion=astuto; return CLEVER;}
+"Boring" | "boring" | "BORING" {lexeme=yytext();tipo=Adjetivo;traduccion=aburrido; return BORING;} 
 "Dull" | "dull" | "DULL" {lexeme=yytext();tipo=Adjetivo;traduccion=aburrido; return DULL;}
 "Energetic" | "energetic" | "ENERGETIC" {lexeme=yytext();tipo=Adjetivo;traduccion=energico; return ENERGETIC;}
 "Tired" | "tired" | "TIRED" {lexeme=yytext();tipo=Adjetivo;traduccion=cansado; return TIRED;}
@@ -401,8 +396,7 @@ espacio=[ ,\t,\r]+
 
                         //Indefinido (Adjetivos indefinidos):
 
-"Amazing" | "amazing" |"AMAZING" {lexeme=yytext();tipo=Adj_Calificativo;traduccion=asombroso; return AMAZING;}
-"Delicious" | "delicious" |"DELICIOUS" {lexeme=yytext();tipo=Adj_Calificativo;traduccion=delicioso; return DELICIOUS;}
+"Amazing" | "amazing" |"AMAZING" {lexeme=yytext();tipo=Adj_Calificativo;traduccion=asombroso; return AMAZING;} 
 "Exciting" | "exciting" |"EXCITING" {lexeme=yytext();tipo=Adj_Calificativo;traduccion=emocionante; return EXCITING;}
 "Interesting" | "interesting" | "INTERESTING" {lexeme=yytext();tipo=Adj_Calificativo;traduccion=interesante; return INTERESTING;}
 "Lovely" | "lovely" | "LOVELY" {lexeme=yytext();tipo=Adj_Calificativo;traduccion=hermoso; return LOVELY;} 
@@ -486,7 +480,7 @@ espacio=[ ,\t,\r]+
 
 
 
-Adverbio:
+//Adverbio:
 "Quickly"  | "quickly" | "QUICKLY" {lexeme=yytext();tipo=Adverbio;traduccion=rapidamente; return QUICKLY;}
 "Here"  | "here" | "HERE" {lexeme=yytext();tipo=Adverbio;traduccion=aqui; return HERE;}
 "Much"  | "much" | "MUCH" {lexeme=yytext();tipo=Adverbio;traduccion=mucho; return MUCH;}
@@ -519,6 +513,10 @@ Adverbio:
 
 
 
+//CONJUNCION
+
+"And" | "and" | "AND" {lexeme=yytext();tipo=Conjuncion;traduccion=y; return AND;}
+"Or" | "or" | "OR" {lexeme=yytext();tipo=Conjuncion;traduccion=o; return OR;}
 
 
 

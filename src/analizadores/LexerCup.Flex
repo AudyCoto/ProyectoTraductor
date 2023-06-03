@@ -179,7 +179,7 @@ espacio=[ ,\t,\r,\n]+
 "Passionate" | "passionate" | "PASSIONATE" {return new Symbol(sym.PASSIONATE, yychar, yyline, yytext());}
 "Patient" | "patient" | "PATIENT" {return new Symbol(sym.PATIENT, yychar, yyline, yytext());}
 "Responsible" | "responsible" | "RESPONSIBLE" {return new Symbol(sym.RESPONSIBLE, yychar, yyline, yytext());}
-
+"Welcome" | "welcome" | "WELCOME" {return new Symbol(sym.WELCOME, yychar, yyline, yytext());}
 
 
                                 //Posesivos (Adjetivos posesivos):
@@ -394,7 +394,7 @@ espacio=[ ,\t,\r,\n]+
 "An" | "an" | "AN" {return new Symbol(sym.AN, yychar, yyline, yytext());}
 
 
-Adverbio:
+//Adverbio:
 "Quickly"  | "quickly" | "QUICKLY" {return new Symbol(sym.QUICKLY, yychar, yyline, yytext());}
 "Here"  | "here" | "HERE" {return new Symbol(sym.HERE, yychar, yyline, yytext());}
 "Much"  | "much" | "MUCH" {return new Symbol(sym.MUCH, yychar, yyline, yytext());}
@@ -428,7 +428,10 @@ Adverbio:
 "[" {return new Symbol(sym.abrllac, yychar, yyline, yytext());}
 "]" {return new Symbol(sym.cerrllac, yychar, yyline, yytext());}
 
+//conjuncion
 
+"And" | "and" | "AND" {return new Symbol(sym.AND, yychar, yyline, yytext());}
+"Or" | "or" | "OR" {return new Symbol(sym.OR, yychar, yyline, yytext());}
 
 
 //----ERROR----

@@ -50,7 +50,7 @@ public enum Tokens {
         sensible,       pensativo,      adaptable,              compasivo,          dinamico,
         entusiasta,     cortes,         innovador,              jovial,             modesto,
         apacible,       fiable,         sociable,               talentoso,          versatil,
-        brillante,      
+        brillante,      bienvenido,
 
         
     //ADJETIVOS POSESIVOS
@@ -101,7 +101,8 @@ public enum Tokens {
     // Articulo
         un,
         adios,
-        
+        //CONJUNCION
+        y, o,
     //Verbo
         disfrutar,
     //-----ingles-----
@@ -143,7 +144,7 @@ public enum Tokens {
         SENSITIVE,      THOUGHTFUL,     ADAPTABLE,  COMPASSIONATE,  DYNAMIC,
         ENTHUSIASTIC,   COURTEOUS,      INNOVATIVE, MODEST,         CLEVER,
         SOCIABLE,       TALENTED,       VERSATILE,  CALM,
-        BRILLIANT,
+        BRILLIANT,      WELCOME,
 
                 
     //ADJETIVOS POSESIVOS
@@ -198,11 +199,13 @@ public enum Tokens {
         QUICKLY,            HERE,           MUCH,           SLOWLY,         QUIETLY,
         HAPPILY,            EASILY,         CAREFULLY,      LOUDLY,         WELL,
         NEVER,              ALWAYS,
+        //CONJUNCION
+        AND, OR,
         //tipo dato,
         Pronombre,          Sustantivo,         Adjetivo,       Adj_Posesivos,
         Pro_demostrativo,   Adj_Calificativo,   Numeral,        Num_Cardinales,
         Adj_Indefinido,     Pro_Interrog,       Adverbio,       Verbo,
-        Articulo,
+        Articulo, Conjuncion,
         Puntuacion,
 
     //VERBO

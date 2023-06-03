@@ -94,18 +94,18 @@ public class Traductor {
         public String remplac2(String cadena){
         String cadena_nueva="";
         cadena_nueva=cadena.replaceAll("como son tu", "como estas");
-        cadena_nueva=cadena.replaceAll("mio nombre", "mi nombre");
-        cadena_nueva=cadena.replaceAll("disfrutar tu ", "diviertete");
-        cadena_nueva=cadena.replaceAll(" punn","\\. " );
-        cadena_nueva=cadena.replaceAll(" comm","\\, " );
-        cadena_nueva=cadena.replaceAll(" puncom","\\; " );
-        cadena_nueva=cadena.replaceAll(" dospum","\\: " );
-        cadena_nueva=cadena.replaceAll(" cerrad","\\! " );
-        cadena_nueva=cadena.replaceAll(" cerrin","\\? " );
-        cadena_nueva=cadena.replaceAll(" abrpar","\\( " );
-        cadena_nueva=cadena.replaceAll(" cerrpar","\\) " );
-        cadena_nueva=cadena.replaceAll(" abrllac","\\[ " );
-        cadena_nueva=cadena.replaceAll(" cerrlac","\\] " );
+        cadena_nueva=cadena_nueva.replaceAll("mio nombre", "mi nombre");
+        cadena_nueva=cadena_nueva.replaceAll("disfrutar tu", "diviertete");
+        cadena_nueva=cadena_nueva.replaceAll(" punn","\\. " );
+        cadena_nueva=cadena_nueva.replaceAll(" comm","\\, " );
+        cadena_nueva=cadena_nueva.replaceAll(" puncom","\\; " );
+        cadena_nueva=cadena_nueva.replaceAll(" dospum","\\: " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrad","\\! " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrin","\\? " );
+        cadena_nueva=cadena_nueva.replaceAll(" abrpar","\\( " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrpar","\\) " );
+        cadena_nueva=cadena_nueva.replaceAll(" abrllac","\\[ " );
+        cadena_nueva=cadena_nueva.replaceAll(" cerrlac","\\] " );
         
         System.out.print(cadena_nueva);
         return cadena_nueva;

@@ -91,7 +91,7 @@ terminal terminal
         SENSITIVE,      THOUGHTFUL,     ADAPTABLE,  COMPASSIONATE,  DYNAMIC,
         ENTHUSIASTIC,   COURTEOUS,      INNOVATIVE, MODEST,         CLEVER,
         SOCIABLE,       TALENTED,       VERSATILE,  CALM,           GOODBYE,
-        BRILLIANT,
+        BRILLIANT,      WELCOME,
 
 
     //ADJETIVOS POSESIVOS
@@ -152,7 +152,7 @@ terminal terminal
 
 non terminal
     SENTENCIA, SIMPLESENTENCIA, COMPUESTASENTENCIA, SUJETO, PREDICADO, CONJUNCION, PRONOMBRE, FRASENOMINAL, FRASEVERBAL, ARTICULO,
-    ADVERBIO, ADJETIVO, SUSTANTIVO, VERBO, FRASE, PUNTUACION, PARRAFO, SALUDO, INTERROGACIONSAL, VERBO2;
+    ADVERBIO, ADJETIVO, SUSTANTIVO, VERBO, FRASE, PUNTUACION, PARRAFO, SALUDO, INTERROGACIONSAL, VERBO2, ADJECALIFICATIVO;
 
 start with PARRAFO;
 
@@ -179,88 +179,63 @@ PARRAFO ::=
     :}
 ;
 
-SENTENCIA ::=
-         SALUDO
-        | SIMPLESENTENCIA 
-        | COMPUESTASENTENCIA
-        | VERBO2
-;
-SALUDO ::= 
-    | HI
-    | HELLO
-    | HI INTERROGACIONSAL
-    | HELLO INTERROGACIONSAL 
-    
-;
-INTERROGACIONSAL ::=
-        HOW ARE YOU
-;
-SIMPLESENTENCIA ::=
-                SUJETO |SUJETO PREDICADO      
-;
 
-COMPUESTASENTENCIA ::=
-                 SIMPLESENTENCIA CONJUNCION SIMPLESENTENCIA
+//he is slowly or i am sad
+SENTENCIA ::= SALUDO        | SIMPLESENTENCIA         | COMPUESTASENTENCIA        | VERBO2 ;
+SALUDO ::=      WELCOME  | HI    | HELLO    | HI INTERROGACIONSAL    | HELLO INTERROGACIONSAL ;
+SIMPLESENTENCIA ::=      SUJETO |SUJETO PREDICADO ;
+COMPUESTASENTENCIA ::=  SIMPLESENTENCIA CONJUNCION SIMPLESENTENCIA;
+SUJETO ::=          PRONOMBRE     | FRASENOMINAL;
+PREDICADO ::=       FRASEVERBAL;
+FRASENOMINAL ::=    ARTICULO ADJETIVO SUSTANTIVO | ARTICULO SUSTANTIVO //|PRONOMBRE
 ;
-
-SUJETO ::=
-                PRONOMBRE  | FRASENOMINAL
+FRASEVERBAL ::=     VERBO ADVERBIO |  VERBO ADJECALIFICATIVO | VERBO ADJETIVO ADVERBIO ;
+ADVERBIO ::=            
+        QUICKLY|            HERE|           MUCH|           SLOWLY|         QUIETLY|      HAPPILY|            EASILY|         CAREFULLY|      LOUDLY|         WELL|
+        NEVER|              ALWAYS
 ;
-
-ADVERBIO ::=    
-                QUICKLY | SLOWLY
-;
-
-
-
-PREDICADO ::=
-                FRASEVERBAL
+INTERROGACIONSAL ::=    HOW ARE YOU ;
+VERBO ::=               AM | ARE | IS;
+VERBO2 ::=              ENJOY YOURSELF;
+PRONOMBRE ::=           I | YOU | HE | SHE | IT | WE | THEY | US | THEM | HIM | MYSELF | YOURSELF | ME;
+CONJUNCION ::=          AND | OR;
+PUNTUACION ::=          nadaa | punn | comm | puncom | dospum | cerrad | cerrin | abrpar | cerrpar | abrllac | cerrllac ;
+ARTICULO ::=            THE | A | AN ;
+ADJETIVO ::=
+                BIG|            BEAUTIFUL|      HAPPY|      INTELLIGENT|    SMALL|    OLD|            FUNNY|          TALL|       BRAVE|          RED|
+                COLD|           SMART|          ELEGANT|    NAME|           FUN|      KIND|           GENEROUS|       CREATIVE|   SINCERE|        PASSIONATE| 
+                PATIENT|        RESPONSIBLE|    JOYFUL|     JOVIAL|         STRONG|   TOUGH|          HUMBLE|         LOYAL|      WITTY|          GRACIOUS|
+                AFFECTIONATE|   DETERMINED|     GENTLE|     FRIENDLY|       HONEST|   ADVENTUROUS|    QUIET|          CURIOUS|    ENERGETIC|      RELIABLE|
+                SHY|            ADMIRABLE|      CHEERFUL|   DILIGENT|       OPTIMISTIC|               GENUINE|        GRATEFUL|       INVENTIVE|  RELAXED|        
+                PEACEFUL|       SENSITIVE|      THOUGHTFUL|     ADAPTABLE|  COMPASSIONATE|  DYNAMIC|
+                ENTHUSIASTIC|   COURTEOUS|      INNOVATIVE| MODEST|         CLEVER|
+                SOCIABLE|       TALENTED|       VERSATILE|  CALM|           GOODBYE|
+                BRILLIANT|      WELCOME
 ;
 
-FRASENOMINAL ::=
-                    ARTICULO ADJETIVO SUSTANTIVO | ARTICULO SUSTANTIVO //|PRONOMBRE
+ADJECALIFICATIVO::=
+        AMAZING|    DELICIOUS|      EXCITING|       INTERESTING|        LOVELY|
+        CHARMING|   WONDERFUL|      EXCELLENT|      FANTASTIC|          INCREDIBLE|
+        LOW|        SAD|            UGLY|           FAST|               CLEAN|
+        WEAK|       STUPID|         BAD|            COWARDLY|           DIRTY|
+        BORING|     CUNNING|        TIRED|          NOISY|              SHORT|
+        SOFT|       PLEASANT|       POLITE|         DISCOURTEOUS|       DISGUSTING|
+        CUTE|       CLUMSY|         WISE|           FOOLISH|            DISHONEST|
+        ANXIOUS|    INDIFFERENT|    SELFISH|        IMPATIENT|          SLOW|
+        CONFIDENT|  INSECURE|       CAUTIOUS|       PESSIMISTIC|        HARSH|
+        REPULSIVE|  ARROGANT|       ATHLETIC|       INDEPENDENT|        DEPENDENT|
+        FIERCE|     HOT|            HOSTILE|        UNFAITHFUL|         CARING|
+        LOUD|       RUDE|           ROUGH|          SHINY|              HARD|
+        SILLY|      DULL|           NICE|           GORGEOUS
 ;
-
-
-FRASEVERBAL ::=
-                VERBO ADVERBIO | VERBO ADJETIVO ADVERBIO
-;
-
-
 
 SUSTANTIVO ::=
-                DOG | CAR | BOOK | HOUSE | CAT | CHAIR | TREE | FLOWER |
-                TABLE | PEN | COMPUTER | PHONE | SUN | BOOKSHELF | HELLO | HI
+            DOG|        CAR|        BOOK|       HOUSE|      CAT|        CHAIR|        TREE|       FLOWER|     TABLE|      PEN|        COMPUTER|   PHONE|
+            SUN|        BOOKSHELF|  HELLO|      HI|         CLOCK|      PENCIL|       DOOR|       FISH|       MOON|       RIVER|      LAMP|       STRANGER|
+            BED|        SHIRT|      HAT|        SHOE|       BALL|       TIGER|      KEY|        WALLET|     WATCH|      PICTURE|
+            TELEVISION| GUITAR|     MUSIC|      IMAGE|      GARDEN|     BEACH|      AIRPLANE|   TRAIN|      SALAD|      PIZZA|
+            ICECREAM|   ORANGE|     APPLE|      BANANA|     TOMATO|     POTATO|     CHICKEN|    COW|        HORSE|      ELEPHANT|
+            LION|       MONKEY|     GIRAFFE|    RABBIT|     SNAKE|      SPIDER|     ANT|        BEE|        BUTTERFLY|  TEACHER|
+            DOCTOR|     NURSE|      PILOT|      ACTOR|      SINGER|     ARTIST|     SCIENTIST|  ENGINEER|   LAWYER|     STUDENT|
+            CHILD|      ADULT|      PARENT|     FRIEND|     NEIGHBOR|   UNKNOWN|    HERO
 ;
-
-VERBO ::=
-                AM | ARE | IS
-;
-VERBO2 ::=
-                ENJOY YOURSELF
-;
-PRONOMBRE ::=
-                I | YOU | HE | SHE | IT | WE | THEY | US | THEM | HIM | MYSELF | YOURSELF | ME
-;
-
-
-CONJUNCION ::=
-                AND | OR
-;
-
-
-PUNTUACION ::=  
-                nadaa | punn | comm | puncom | dospum | cerrad | cerrin | abrpar | cerrpar | abrllac | cerrllac
-;
-
-
-ARTICULO ::=
-                THE | A | AN
-;
-
-ADJETIVO ::=
-                BIG | BEAUTIFUL | HAPPY | INTELLIGENT | SMALL   | OLD | FUNNY | TALL | BRAVE | RED |
-                COLD | SMART | ELEGANT | NAME | CERTAIN | VARIOUS | AMAZING | DELICIOUS | EXCITING |
-                INTERESTING | LOVELY | CHARMING | WONDERFUL | EXCELLENT | FANTASTIC | INCREDIBLE
-;
-
