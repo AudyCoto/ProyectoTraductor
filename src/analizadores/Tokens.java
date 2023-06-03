@@ -100,9 +100,10 @@ public enum Tokens {
         nunca,              siempre,
     // Articulo
         un,
+        adios,
         
-        
-        
+    //Verbo
+        disfrutar,
     //-----ingles-----
     //pronombres
         I,       YOU,       HE,         SHE,       IT,     WE,
@@ -114,7 +115,7 @@ public enum Tokens {
         TREE,       FLOWER,     TABLE,      PEN,        COMPUTER,   PHONE,
         SUN,        BOOKSHELF,  HELLO,      HI,         CLOCK,      PENCIL,
         DOOR,       FISH,       MOON,       RIVER,      LAMP,       STRANGER,
-        BED,        SHIRT,      HAT,        SHOE,       BALL,
+        BED,        SHIRT,      HAT,        SHOE,       BALL,       GOODBYE,
         TIGER,      KEY,        WALLET,     WATCH,      PICTURE,
         TELEVISION, GUITAR,     MUSIC,      IMAGE,      GARDEN,
         BEACH,      AIRPLANE,   TRAIN,      SALAD,      PIZZA,
@@ -175,9 +176,11 @@ public enum Tokens {
         SOME,       ANY,        SEVERAL,    FEW,        ALL,        BOTH,   EVERY,
         MANY,
         
+         //INTERROGATIVOS
+     
     //Pronombres Interrogativos
         WHO,        WHAT,       WHERE,      WHEN,       WHICH,      WHOSE,
-        WHOM,       WHY,        HOW,        
+        WHOM,       WHY,        HOW,        BECAUSE,
     //Numeral
         ONE,        TWO,        THREE,      FOUR,       FIVE,       SIX,        SEVEN,
         EIGHT,      NINE,       TEN,        ELEVEN,     TWELVE,     TWENTY,     HUNDRED,
@@ -198,10 +201,12 @@ public enum Tokens {
         //tipo dato,
         Pronombre,          Sustantivo,         Adjetivo,       Adj_Posesivos,
         Pro_demostrativo,   Adj_Calificativo,   Numeral,        Num_Cardinales,
-        Adj_Indefinido,     Pro_Interrog,       Adverbio,
+        Adj_Indefinido,     Pro_Interrog,       Adverbio,       Verbo,
         Articulo,
         Puntuacion,
-    
+
+    //VERBO
+        ENJOY,
 
 //PUNTUACION
         nadaa,      punn,       comm,       puncom,     dospum,     cerrad,

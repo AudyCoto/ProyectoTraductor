@@ -38,11 +38,20 @@ espacio=[ ,\t,\r,\n]+
 "They" | "they" {return new Symbol(sym.THEY, yychar, yyline, yytext());}
 "Am" | "am" | "I'm" | "i'm" {return new Symbol(sym.AM, yychar, yyline, yytext());}
 "Are" | "are" | "ARE" {return new Symbol(sym.ARE, yychar, yyline, yytext());}
+"Is" | "is" | "IS" {return new Symbol(sym.IS, yychar, yyline, yytext());}
+"Us" | "us" | "US" {return new Symbol(sym.US, yychar, yyline, yytext());}
+"Them" | "them" | "THEM" {return new Symbol(sym.THEM, yychar, yyline, yytext());}
+"Me" | "me" | "ME" {return new Symbol(sym.ME, yychar, yyline, yytext());}
+"Him" | "him" | "HIM" {return new Symbol(sym.HIM, yychar, yyline, yytext());}
+"Myself" | "myself" | "MYSELF"  {return new Symbol(sym.MYSELF, yychar, yyline, yytext());}
+"Yourself" | "yourself" | "YOURSELF"  {return new Symbol(sym.YOURSELF, yychar, yyline, yytext());}
+
 
 
                                 //SUSTANTIVOS
 
 "Hi" | "hi" | "HI" {return new Symbol(sym.HI, yychar, yyline, yytext());}
+"Goodbye" | "goodbye" | "GOODBYE" {return new Symbol(sym.GOODBYE, yychar, yyline, yytext());}
 "Hello" | "hello" | "HELLO" {return new Symbol(sym.HELLO, yychar, yyline, yytext());}
 "Dog" | "dog" | "DOG" {return new Symbol(sym.DOG, yychar, yyline, yytext());}
 "Car" | "car" | "CAR" {return new Symbol(sym.CAR, yychar, yyline, yytext());}
@@ -400,6 +409,8 @@ Adverbio:
 "Always"  | "always" | "ALWAYS" {return new Symbol(sym.ALWAYS, yychar, yyline, yytext());}
 
 
+//Verbo
+"Enjoy" | "enjoy" | "ENJOY" {return new Symbol(sym.ENJOY, yychar, yyline, yytext());}
 
 
 

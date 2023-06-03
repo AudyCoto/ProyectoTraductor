@@ -265,6 +265,7 @@ public class Principal extends javax.swing.JFrame {
         String cadena_nueva="";
         cadena_nueva=cadena.replaceAll("como son tu", "como estas");
         cadena_nueva=cadena_nueva.replaceAll("mio nombre", "mi nombre");
+        cadena_nueva=cadena.replaceAll("disfrutar tu ", "diviertete");
         cadena_nueva=cadena_nueva.replaceAll(" punn","\\. " );
         cadena_nueva=cadena_nueva.replaceAll(" comm","\\, " );
         cadena_nueva=cadena_nueva.replaceAll(" puncom","\\; " );

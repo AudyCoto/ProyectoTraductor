@@ -90,7 +90,7 @@ terminal terminal
         GENUINE,        GRATEFUL,       INVENTIVE,  RELAXED,        PEACEFUL,
         SENSITIVE,      THOUGHTFUL,     ADAPTABLE,  COMPASSIONATE,  DYNAMIC,
         ENTHUSIASTIC,   COURTEOUS,      INNOVATIVE, MODEST,         CLEVER,
-        SOCIABLE,       TALENTED,       VERSATILE,  CALM,
+        SOCIABLE,       TALENTED,       VERSATILE,  CALM,           GOODBYE,
         BRILLIANT,
 
 
@@ -142,6 +142,8 @@ terminal terminal
         HAPPILY,            EASILY,         CAREFULLY,      LOUDLY,         WELL,
         NEVER,              ALWAYS,
         
+    //VERBO
+        ENJOY,
     //ERROR
         //ERROR,
     //Articulo
@@ -150,7 +152,7 @@ terminal terminal
 
 non terminal
     SENTENCIA, SIMPLESENTENCIA, COMPUESTASENTENCIA, SUJETO, PREDICADO, CONJUNCION, PRONOMBRE, FRASENOMINAL, FRASEVERBAL, ARTICULO,
-    ADVERBIO, ADJETIVO, SUSTANTIVO, VERBO, FRASE, PUNTUACION, PARRAFO, SALUDO;
+    ADVERBIO, ADJETIVO, SUSTANTIVO, VERBO, FRASE, PUNTUACION, PARRAFO, SALUDO, INTERROGACIONSAL, VERBO2;
 
 start with PARRAFO;
 
@@ -178,21 +180,20 @@ PARRAFO ::=
 ;
 
 SENTENCIA ::=
-        SIMPLESENTENCIA:instr
-          {:
-
-            Nodo nd = new Nodo("SIMPLESENTENCIA");
-            nd.setIdNod(parser.contador++);
-            nd.AddHijos((Nodo) instr);
-            nd.AddHijos((Nodo) nd);
-            RESULT = instr;
-            :}
-
+         SALUDO
+        | SIMPLESENTENCIA 
         | COMPUESTASENTENCIA
-        | SALUDO
+        | VERBO2
 ;
 SALUDO ::= 
-    HI | HELLO
+    | HI
+    | HELLO
+    | HI INTERROGACIONSAL
+    | HELLO INTERROGACIONSAL 
+    
+;
+INTERROGACIONSAL ::=
+        HOW ARE YOU
 ;
 SIMPLESENTENCIA ::=
                 SUJETO |SUJETO PREDICADO      
@@ -201,7 +202,6 @@ SIMPLESENTENCIA ::=
 COMPUESTASENTENCIA ::=
                  SIMPLESENTENCIA CONJUNCION SIMPLESENTENCIA
 ;
-
 
 SUJETO ::=
                 PRONOMBRE  | FRASENOMINAL
@@ -235,6 +235,9 @@ SUSTANTIVO ::=
 
 VERBO ::=
                 AM | ARE | IS
+;
+VERBO2 ::=
+                ENJOY YOURSELF
 ;
 PRONOMBRE ::=
                 I | YOU | HE | SHE | IT | WE | THEY | US | THEM | HIM | MYSELF | YOURSELF | ME

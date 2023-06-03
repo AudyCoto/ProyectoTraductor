@@ -95,6 +95,7 @@ public class Traductor {
         String cadena_nueva="";
         cadena_nueva=cadena.replaceAll("como son tu", "como estas");
         cadena_nueva=cadena.replaceAll("mio nombre", "mi nombre");
+        cadena_nueva=cadena.replaceAll("disfrutar tu ", "diviertete");
         cadena_nueva=cadena.replaceAll(" punn","\\. " );
         cadena_nueva=cadena.replaceAll(" comm","\\, " );
         cadena_nueva=cadena.replaceAll(" puncom","\\; " );
